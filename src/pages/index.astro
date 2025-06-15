@@ -10,12 +10,21 @@ import LinkedInIcon from '../assets/icons/LinkedIn.astro';
 const linkedinUrl  = 'https://www.linkedin.com/in/%C3%A1lvaro-g%C3%B3mez-a4996436a/';
 import GitHubIcon from '../assets/icons/GitHub.astro';
 const githubUrl = 'https://github.com/4lvaroo';
+import EmailForwardIcon from '../assets/icons/EmailForwardIcon.astro';
 
+const profilePhoto = '/portfolio/Alvaro.jpg';
 ---
 
-<Layout title="Álvaro Gómez - Full Stack Developer">
+<Layout title="Portfolio de Álvaro Gómez - Desarrollador y Programador Web" 
+		description="Contrata a Álvaro Gómez, un desarrollador web especializado en crear aplicaciones modernas y accesibles. Con experiencia en tecnologías como React, Astro, Tailwind CSS y más, estoy listo para enfrentar nuevos desafíos. ¡Conéctate conmigo!"
+>
 	<main>
 		<section class="w-full lg:w-[740px] mx-auto py-44">
+			<img 
+				class="rounded-full size-12 mb-2"
+				src={ profilePhoto }
+				alt="Logo"
+			/>
 			<h1 class="text-white text-5xl font-bold flex flex-row gap-x-4 pb-4">
 				Hey, soy Álvaro Gómez 
 				<a class="flex justify-center items-center" href={ linkedinUrl } target="_blank" rel="noopener noreferrer">
@@ -26,14 +35,18 @@ const githubUrl = 'https://github.com/4lvaroo';
 				<span class="text-yellow-200">Desarrollador Web en busca de sus próximos desafíos</span>. De Badajoz, España . Especializado en hacer <strong class="text-yellow-100/90">aplicaciones web modernas y accesibles</strong>.
 			</h2>
 
-			<nav class="flex gap-x-2 mt-5">
+			<nav class="flex gap-x-4 mt-8">
 				<SocialPill href={linkedinUrl}>
-					<LinkedInIcon class="w-6 h-6" />
+					<LinkedInIcon class="size-6" />
 					LinkedIn
 				</SocialPill>
 				<SocialPill href={githubUrl}>
-					<GitHubIcon class="w-6 h-6" />
+					<GitHubIcon class="size-6" />
 					GitHub
+				</SocialPill>
+				<SocialPill href={githubUrl}>
+					<EmailForwardIcon class="size-6" />
+					alvarogd548@gmail.com
 				</SocialPill>
 			</nav>
 		</section>
