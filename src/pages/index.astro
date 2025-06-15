@@ -1,7 +1,16 @@
 ---
-import Badge from '../components/Badge.astro';
-import Layout from '../layouts/Layout.astro';
 import '../styles/global.css';
+
+import Layout from '../layouts/Layout.astro';
+import Badge from '../components/Badge.astro';
+import SocialPill from '../components/SocialPill.astro';
+
+// Icons and URLs
+import LinkedInIcon from '../assets/icons/LinkedIn.astro';
+const linkedinUrl  = 'https://www.linkedin.com/in/%C3%A1lvaro-g%C3%B3mez-a4996436a/';
+import GitHubIcon from '../assets/icons/GitHub.astro';
+const githubUrl = 'https://github.com/4lvaroo';
+
 ---
 
 <Layout title="Álvaro Gómez - Full Stack Developer">
@@ -9,13 +18,24 @@ import '../styles/global.css';
 		<section class="w-full lg:w-[740px] mx-auto py-44">
 			<h1 class="text-white text-5xl font-bold flex flex-row gap-x-4 pb-4">
 				Hey, soy Álvaro Gómez 
-				<div class="flex justify-center items-center">
+				<a class="flex justify-center items-center" href={ linkedinUrl } target="_blank" rel="noopener noreferrer">
 					<Badge>Disponible para trabajar</Badge>
-				</div>
+				</a>
 			</h1>
-			<h2 class="text-xl opacity-80 ">
-				Desarrollador Web en busca de sus próximos desafíos. De Badajoz, España. Especializado en hacer <strong>aplicaciones web modernas y accesibles</strong>.
+			<h2 class="text-2xl opacity-80 ">
+				<span class="text-yellow-200">Desarrollador Web en busca de sus próximos desafíos</span>. De Badajoz, España . Especializado en hacer <strong class="text-yellow-100/90">aplicaciones web modernas y accesibles</strong>.
 			</h2>
+
+			<nav class="flex gap-x-2 mt-5">
+				<SocialPill href={linkedinUrl}>
+					<LinkedInIcon class="w-6 h-6" />
+					LinkedIn
+				</SocialPill>
+				<SocialPill href={githubUrl}>
+					<GitHubIcon class="w-6 h-6" />
+					GitHub
+				</SocialPill>
+			</nav>
 		</section>
 	</main>
 </Layout>
