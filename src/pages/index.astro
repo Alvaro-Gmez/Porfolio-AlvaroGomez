@@ -8,12 +8,15 @@ import SectionContainer from '../components/SectionContainer.astro';
 import Experience from '../components/Experience.astro';
 
 // Icons and URLs
-import LinkedInIcon from '../assets/icons/LinkedIn.astro';
-import GitHubIcon from '../assets/icons/GitHub.astro';
+import LinkedInIcon from '../assets/icons/LinkedInIcon.astro';
+import GitHubIcon from '../assets/icons/GitHubIcon.astro';
 import EmailForwardIcon from '../assets/icons/EmailForwardIcon.astro';
-import Briefcase from '../assets/icons/Briefcase.astro';
+import BriefcaseIcon from '../assets/icons/BriefcaseIcon.astro';
+import CodeIcon from '../assets/icons/CodeIcon.astro';
+import Projects from '../components/Projects.astro';
 const linkedinUrl  = 'https://www.linkedin.com/in/%C3%A1lvaro-g%C3%B3mez-a4996436a/';
 const githubUrl = 'https://github.com/4lvaroo';
+const emailUrl = 'mailto:gomezdelgadoalvaro04@gmail.com';
 
 const profilePhoto = '/portfolio/Alvaro.jpg';
 ---
@@ -21,45 +24,53 @@ const profilePhoto = '/portfolio/Alvaro.jpg';
 <Layout title="Portfolio de Álvaro Gómez - Desarrollador y Programador Web" 
 		description="Contrata a Álvaro Gómez, un desarrollador web especializado en crear aplicaciones modernas y accesibles. Con experiencia en tecnologías como React, Astro, Tailwind CSS y más, estoy listo para enfrentar nuevos desafíos. ¡Conéctate conmigo!"
 >
-	<main>
+	<main class="px-4">
 		<SectionContainer class="py-44 pb-24">
 			<img 
 				class="rounded-full size-12 mb-2"
 				src={ profilePhoto }
 				alt="Logo"
 			/>
-			<h1 class="text-white text-5xl font-bold flex flex-row gap-x-4 pb-4">
+			<h1 class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10">
 				Hey, soy Álvaro Gómez 
 				<a class="flex justify-center items-center" href={ linkedinUrl } target="_blank" rel="noopener noreferrer">
 					<Badge>Disponible para trabajar</Badge>
 				</a>
 			</h1>
-			<h2 class="text-2xl opacity-80 ">
+			<h2 class="text-xl lg:text-2xl text-wrap opacity-80 max-w-[700px]">
 				<span class="text-yellow-200">Desarrollador Web en busca de sus próximos desafíos</span>. De Badajoz, España . Especializado en hacer <strong class="text-yellow-100/90">aplicaciones web modernas y accesibles</strong>.
 			</h2>
 
-			<nav class="flex gap-x-4 mt-8">
+			<nav class="flex gap-4 mt-8 flex-wrap">
 				<SocialPill href={linkedinUrl}>
-					<LinkedInIcon class="size-6" />
+					<LinkedInIcon class="size-4 md:size-6" />
 					LinkedIn
 				</SocialPill>
 				<SocialPill href={githubUrl}>
-					<GitHubIcon class="size-6" />
+					<GitHubIcon class="size-4 md:size-6" />
 					GitHub
 				</SocialPill>
-				<SocialPill href={githubUrl}>
-					<EmailForwardIcon class="size-6" />
-					alvarogd548@gmail.com
+				<SocialPill href={emailUrl}>
+					<EmailForwardIcon class="size-4 md:size-6" />
+					gomezdelgadoalvaro04@gmail.com
 				</SocialPill>
 			</nav>
 		</SectionContainer>
 
 		<SectionContainer id="experiencia">
 			<h2 class="text-2xl font-semibold pb-6 flex items-center gap-x-2">
-				<Briefcase class="size-6" />
+				<BriefcaseIcon class="size-6" />
 				Experiencia Laboral
 			</h2>
 			<Experience />
+		</SectionContainer>
+
+		<SectionContainer id="proyectos">
+			<h2 class="text-2xl font-semibold pb-6 flex items-center gap-x-2">
+				<CodeIcon class="size-6" />
+				Proyectos
+			</h2>
+			<Projects />
 		</SectionContainer>
 	</main>
 </Layout>
