@@ -4,7 +4,76 @@ import '../styles/global.css';
 ---
 
 <Layout title="Álvaro Gómez - Full Stack Developer">
-	<main>
-		
-	</main>
+	<main class="grid grid-cols-[260px_1fr] gap-8 p-6">
+		<!-- Sidebar -->
+		<aside class="flex flex-col gap-8 bg-transparent border-2 border-gray-200">
+			<nav class="flex flex-col gap-4">
+				<span class="font-bold text-lg mb-2">Categories</span>
+				<a href="#" class="flex items-center gap-2 text-gray-200 hover:text-white">
+					<span>🏠</span> About
+				</a>
+				<a href="#" class="flex items-center gap-2 text-gray-200 hover:text-white">
+					<span>💼</span> Skills
+				</a>
+				<a href="#" class="flex items-center gap-2 text-gray-200 hover:text-white">
+					<span>📝</span> Jobs
+				</a>
+				<a href="#" class="flex items-center gap-2 text-gray-200 hover:text-white">
+					<span>📁</span> Projects
+				</a>
+				<a href="#" class="flex items-center gap-2 text-gray-200 hover:text-white"><span>🎓</span> Educations</a>
+			</nav>
+			<div class="mt-8">
+				<span class="font-bold text-lg mb-2">Social Link</span>
+				<div class="flex flex-col gap-2 mt-2">
+				<a href="#" class="text-gray-200 hover:text-white">LinkedIn</a>
+				<a href="#" class="text-gray-200 hover:text-white">GitHub</a>
+				<a href="#" class="text-gray-200 hover:text-white">Telegram</a>
+				<a href="#" class="text-gray-200 hover:text-white">Phone</a>
+				<a href="#" class="text-gray-200 hover:text-white">Email</a>
+				</div>
+			</div>
+		</aside>
+
+    {/* Contenido principal */}
+    <section class="flex flex-col gap-8">
+      {/* Card principal */}
+      <div class="flex justify-between items-center bg-cyan-400/90 rounded-2xl p-8 shadow-lg">
+        <div>
+          <h1 class="text-3xl font-bold mb-2 text-white">Álvaro Gómez</h1>
+          <p class="text-white mb-4 max-w-xl">
+            Desarrollador Full Stack con experiencia en aplicaciones web modernas, diseño centrado en el usuario y tecnologías de vanguardia.
+          </p>
+          <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-semibold transition">Descargar CV</button>
+        </div>
+        <img src="/assets/tu-ilustracion.png" alt="Ilustración" class="w-40 h-40 object-contain" />
+      </div>
+
+      {/* Skills */}
+      <div>
+        <h2 class="text-xl font-bold mb-4 text-white">Mis Skills</h2>
+        <div class="grid grid-cols-7 gap-4">
+          <div class="bg-white/10 rounded-xl flex flex-col items-center p-4">
+            <img src="/assets/html.svg" class="w-10 h-10 mb-2" />
+            <span class="text-white">HTML</span>
+          </div>
+          {/* Repite para cada skill */}
+        </div>
+      </div>
+
+      {/* Jobs */}
+      <div>
+        <h2 class="text-xl font-bold mb-4 text-white">Mis Jobs</h2>
+        <div class="bg-white/10 rounded-2xl p-6">
+          <div class="flex justify-between items-center mb-2">
+            <span class="font-semibold text-white">i4Twins</span>
+            <span class="text-gray-300 text-sm">Apr 2024 - Present</span>
+          </div>
+          <p class="text-gray-200 text-sm">
+            Plataforma IIoT No-Code para soluciones de industria 4.0, permitiendo a usuarios no técnicos diseñar dashboards personalizables.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
 </Layout>
