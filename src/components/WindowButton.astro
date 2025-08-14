@@ -1,0 +1,9 @@
+---
+    const { href, alt } = Astro.props;
+    const className = Astro.props.class ?? '';
+---
+<button class={`size-4 rounded-full ${className ?? ''}`} 
+        aria-label="Close"
+    >
+    <img src={Astro.props.href} alt={Astro.props.alt} class="p-1" />
+</button>
