@@ -2,6 +2,13 @@
 import Layout from '../layouts/Layout.astro';
 import WindowButton from '../components/WindowButton.astro';
 import LinkedInBadge from '../components/LinkedIn-Badge.astro';
+// Icons
+import ProjectIcon from '../assets/Project-Icon.astro';
+import AboutIcon from '../assets/About-Icon.astro';
+import EducationIcon from '../assets/Education-Icon.astro';
+import SkillIcon from '../assets/Skill-Icon.astro';
+import JobsIcon from '../assets/Jobs-Icon.astro';
+// Styles
 import '../styles/global.css';
 ---
 
@@ -17,9 +24,16 @@ import '../styles/global.css';
       <WindowButton class="bg-yellow-500" href="assets/icons/subtract-icon.png" alt="Minimize"/>
       <WindowButton class="bg-green-500" href="assets/icons/full-screen-icon.png" alt="Full screen"/>
       </div>
-      <div class="flex p-6">
-      <h5 class="text-lg font-medium text-[#bfbfbf]">Categorias</h5>
-      
+      <div class="flex flex-col p-6">
+        <div class="px-3">
+          <h5 class="text-lg font-medium text-[#bfbfbf]">Categories</h5>
+          <a href="" class="text-md px-3 py-2 rounded-xl transition hover:bg-black/40 hover:scale-105"><span class="flex gap-3"><ProjectIcon/>Projects</span></a>
+          <a href="" class="text-md px-3 py-2 rounded-xl transition hover:bg-black/40 hover:scale-105"><span class="flex gap-3"><EducationIcon/>Education</span></a>
+          <a href="" class="text-md px-3 py-2 rounded-xl transition hover:bg-black/40 hover:scale-105"><span class="flex gap-3"><AboutIcon/>About</span></a>
+          <a href="" class="text-md px-3 py-2 rounded-xl transition hover:bg-black/40 hover:scale-105"><span class="flex gap-3"><SkillIcon/>Skills</span></a>
+          <a href="" class="text-md px-3 py-2 rounded-xl transition hover:bg-black/40 hover:scale-105"><span class="flex gap-3"><JobsIcon/>Jobs</span></a>
+          <h5 class="text-lg font-medium text-[#bfbfbf]">Social Links</h5>
+        </div>
       </div>
     </aside>
     <section class="flex flex-col w-full">
