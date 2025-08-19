@@ -10,15 +10,19 @@ import '../styles/global.css';
   description="Contrata a Álvaro Gómez, un desarrollador Full Stack con experiencia en tecnologías modernas como Angular, Spring Boot y más. Crea aplicaciones web rápidas y eficientes con un enfoque en la experiencia del usuario."
 >
   <main class="flex">
-    <aside class="flex-col w-1/4"> 
-      <div class="flex items-center justify-start gap-4 p-6 border-b border-r">
-        <WindowButton class="bg-red-500" href="assets/icons/close-icon.png" alt="Close"/>
-        <WindowButton class="bg-yellow-500" href="assets/icons/subtract-icon.png" alt="Minimize"/>
-        <WindowButton class="bg-green-500" href="assets/icons/full-screen-icon.png" alt="Full screen"/>
+    <aside class="flex-col w-1/4 h-full border-r"> 
+      <div class="flex items-center justify-start gap-4 p-6 border-b">
+      <WindowButton class="bg-red-500" href="assets/icons/close-icon.png" alt="Close"/>
+      <WindowButton class="bg-yellow-500" href="assets/icons/subtract-icon.png" alt="Minimize"/>
+      <WindowButton class="bg-green-500" href="assets/icons/full-screen-icon.png" alt="Full screen"/>
+      </div>
+      <div class="flex p-6">
+      <h5 class="text-lg font-medium text-[#bfbfbf]">Categorias</h5>
+      
       </div>
     </aside>
     <section class="flex flex-col w-full">
-      <nav class="flex items-center justify-end gap-4 border-b p-3 position-sticky top-0">
+      <nav class="flex items-center justify-end gap-4 p-3 position-sticky top-0 border-b ">
         <a href="https://www.linkedin.com/in/alvarogmez/" target="_blank" rel="noopener" class="flex items-center transition md:justify-center md:hover:scale-105">
           <LinkedInBadge />
         </a>
