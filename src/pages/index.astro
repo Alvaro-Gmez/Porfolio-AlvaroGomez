@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import WindowButton from '../components/WindowButton.astro';
+import LinkedInBadge from '../components/LinkedIn-Badge.astro';
 import '../styles/global.css';
 ---
 
@@ -17,8 +18,11 @@ import '../styles/global.css';
       </div>
     </aside>
     <section class="flex flex-col w-full">
-      <nav class="flex justify-end border-b p-4 position-sticky top-0">
-        <img src="" alt="" class="size-8 border-2 rounded-full" />
+      <nav class="flex items-center justify-end gap-4 border-b p-3 position-sticky top-0">
+        <a href="https://www.linkedin.com/in/alvarogmez/" target="_blank" rel="noopener" class="flex items-center transition md:justify-center md:hover:scale-105">
+          <LinkedInBadge />
+        </a>
+        <img src="assets/images/alvaro3.jpeg" alt="Foto de perfil de Álvaro Gómez" class="size-10 border-2 rounded-full"/>
       </nav>
     </section>
   </main>
