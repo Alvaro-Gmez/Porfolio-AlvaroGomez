@@ -1,9 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Title from '../components/Title.astro'
 import WindowButton from '../components/WindowButton.astro';
 import LinkedInBadge from '../components/LinkedIn-Badge.astro';
 import LinkButton from '../components/LinkButton.astro';
 import AccordionButton from '../components/AccordionButton.astro';
+import Project from '../components/Project.astro';
 // Icons
 import ProjectIcon from '../assets/Project-Icon.astro';
 import AboutIcon from '../assets/About-Icon.astro';
@@ -25,8 +27,8 @@ import '../styles/global.css';
   author="Álvaro Gómez"
 >
   <main class="flex">
-    <aside class="flex-col w-1/4 h-full border-r "> 
-      <div class="flex items-center justify-start gap-4 p-6 border-b">
+    <aside class="flex-col w-1/4 h-full border-r border-[var(--border-color)]">
+      <div class="flex items-center justify-start gap-4 p-6 border-b border-[var(--border-color)]">
         <WindowButton class="bg-red-500" href="assets/icons/close-icon.png" alt="Close"/>
         <WindowButton class="bg-yellow-500" href="assets/icons/subtract-icon.png" alt="Minimize"/>
         <WindowButton class="bg-green-500" href="assets/icons/full-screen-icon.png" alt="Full screen"/>
@@ -34,20 +36,20 @@ import '../styles/global.css';
       <div class="flex flex-col p-6">
         <div class="px-2.5">
           <AccordionButton title="Categorias"/>
-          <LinkButton href="/projects">
-            <ProjectIcon/>Projects
+          <LinkButton href="#about">
+            <AboutIcon/>Sobre mí
           </LinkButton>
-          <LinkButton href="/about">
-            <AboutIcon/>About Me
+          <LinkButton href="/projects">
+            <ProjectIcon/>Projectos
           </LinkButton>
           <LinkButton href="/education">
-            <EducationIcon/>Education
+            <EducationIcon/>Educación
           </LinkButton>
           <LinkButton href="/skills">
-            <SkillIcon/>Skills
+            <SkillIcon/>Habilidades
           </LinkButton>
           <LinkButton href="/jobs">
-            <JobsIcon/>Jobs
+            <JobsIcon/>Experiencia
           </LinkButton>
         </div>
         <div class="px-2.5">
@@ -62,21 +64,50 @@ import '../styles/global.css';
             <InstagramIcon/>Instagram
           </LinkButton>
           <LinkButton href="">
-            <PhoneIcon/>Phone
+            <PhoneIcon/>Teléfono
           </LinkButton>
           <LinkButton href="">
-            <EmailIcon/>Email
+            <EmailIcon/>Correo
           </LinkButton>
         </div>
       </div>
     </aside>
     <section class="flex flex-col w-full">
-      <nav class="flex items-center justify-end gap-4 p-3 position-sticky top-0 border-b ">
+      {/* Navbar */}
+      <nav class="flex flex-row items-center justify-end gap-4 p-3 position-sticky top-0 border-b border-[var(--border-color)]">
         <a href="https://www.linkedin.com/in/alvarogmez/" target="_blank" rel="noopener" class="flex items-center transition md:justify-center md:hover:scale-105">
           <LinkedInBadge />
         </a>
         <img src="assets/images/alvaro3.jpeg" alt="Foto de perfil de Álvaro Gómez" class="size-10 border-2 rounded-full"/>
       </nav>
+
+      {/* About me */}
+      <section class="p-6 overflow-y-auto">
+        <article class="flex rounded-2xl bg-[#72686A]">
+          <div class="w-fit">
+            <h1 id="about" class="p-4 text-4xl font-bold text-black/60 underline">Hola, soy Álvaro Gómez</h1>
+            <p class="p-4 text-lg text-balance text-white/80">
+              Desarrollador y Programador Web con experiencia en tecnologías modernas como Angular, Spring Boot y más. Crea aplicaciones web rápidas y eficientes con un enfoque en la experiencia del usuario.
+            </p>
+            <a href="public/Álvaro_Gómez_CV.pdf" download="Álvaro_Gómez_CV.pdf">
+              <button class="m-4 p-2.5 rounded-lg bg-white/80 text-black">Descargar CV</button>
+            </a>
+          </div>
+          <div class="flex items-center justify-center w-1/2">
+            <img src="" alt="Avatar de Álvaro Gómez"/>
+          </div>
+        </article>
+
+        {/* Projects */}
+        <Title title="Mis Proyectos"/>
+        <article class="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-2">
+            <Project />
+            <Project />
+            <Project />
+            <Project />
+            <Project />
+        </article>
+      </section>
     </section>
   </main>
 </Layout>
