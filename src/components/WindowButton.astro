@@ -1,9 +1,15 @@
 ---
-    const { href, alt } = Astro.props;
-    const className = Astro.props.class ?? '';
+const { href, alt } = Astro.props;
+const className = Astro.props.class ?? '';
 ---
-<button class={`size-4 rounded-full ${className ?? ''}`} 
-        aria-label="Close"
-    >
-    <img src={Astro.props.href} alt={Astro.props.alt} class="p-1" />
+
+<button 
+  class={`flex items-center justify-center size-4 me-3.5 rounded-full ${className}`} 
+  aria-label={alt}
+>
+  <img 
+    src={href} 
+    alt={alt} 
+    class="p-1 hidden group-hover:block" 
+  />
 </button>

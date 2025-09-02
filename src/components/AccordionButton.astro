@@ -2,16 +2,16 @@
     const { title } = Astro.props;
 ---
 <button 
-    class="flex items-center justify-between w-full py-2 mb-2 text-left text-gray-300 transition rounded-lg" 
+    class="flex items-center justify-between w-full py-2 mb-2 text-left rounded-lg" 
     type="button" 
     data-accordion-target="#accordion-collapse-body-1" 
     aria-expanded="true" 
     aria-controls="accordion-collapse-body-1"
 >
-    <h5 class="text-lg font-semibold text-[#bfbfbf]" id="">{title}</h5>
+    <h5 class="text-md font-bold text-[#bfbfbf]">{title}</h5>
     <svg 
         data-accordion-icon 
-        class="w-3 h-3 rotate-180 shrink-0" 
+        class="w-3 h-3 shrink-0" 
         aria-hidden="true" 
         xmlns="http://www.w3.org/2000/svg" 
         fill="none" 
