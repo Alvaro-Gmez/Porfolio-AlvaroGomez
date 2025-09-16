@@ -6,6 +6,7 @@ import LinkedInBadge from '../components/LinkedIn-Badge.astro';
 import LinkButton from '../components/LinkButton.astro';
 import AccordionButton from '../components/AccordionButton.astro';
 import Project from '../components/Project.astro';
+
 // Icons
 import ProjectIcon from '../assets/icons/Project-Icon.astro';
 import AboutIcon from '../assets/icons/About-Icon.astro';
@@ -17,6 +18,12 @@ import GitHubIcon from '../assets/icons/GitHub-Icon.astro';
 import InstagramIcon from '../assets/icons/Instagram-Icon.astro';
 import PhoneIcon from '../assets/icons/Phone-Icon.astro';
 import EmailIcon from '../assets/icons/Email-Icon.astro';
+
+// URLs
+const linkedInUrl = 'https://www.linkedin.com/in/alvarogmez/';
+const gitHubUrl = 'https://github.com/Alvaro-Gmez';
+const instagramUrl = 'https://www.instagram.com/aalvarogoomeez/';
+
 // Styles
 import '../styles/global.css';
 ---
@@ -55,13 +62,13 @@ import '../styles/global.css';
         </div>
         <div>
           <AccordionButton title="Contactos"/>
-          <LinkButton href="https://www.linkedin.com/in/alvarogmez/">
+          <LinkButton href={linkedInUrl}>
             <LinkedInIcon/>LinkedIn
           </LinkButton>
-          <LinkButton href="">
+          <LinkButton href={gitHubUrl}>
             <GitHubIcon/>GitHub
           </LinkButton>
-          <LinkButton href="">
+          <LinkButton href={instagramUrl}>
             <InstagramIcon/>Instagram
           </LinkButton>
           <LinkButton href="/+34672775698">
@@ -101,13 +108,14 @@ import '../styles/global.css';
               </div>
           </article>
     
-        {/* Projects */}
-        <article id="projects">
-          <Title title="Mis Proyectos"/>
-          <div class="grid grid-cols-1 gap-4 lg:grid-cols-2 sm:grid-cols-1">
-            <Project />
-          </div>
-        </article>
+          {/* Projects */}
+          <article id="projects">
+            <Title title="Mis Proyectos"/>
+            <div class="grid grid-cols-1 gap-4 lg:grid-cols-2 sm:grid-cols-1">
+              <Project />
+            </div>
+          </article>
+        </section>
       </main>
     </section>
   </section>
