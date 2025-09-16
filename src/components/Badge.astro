@@ -1,0 +1,7 @@
+---
+const classes = Astro.props.class || "";
+---
+
+<span class="flex justify-center items-center w-fit bg-black/60 text-xs text-white/70 rounded-full p-1 px-2.5" class={classes}>
+    <slot />
+</span>

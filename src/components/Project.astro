@@ -1,14 +1,41 @@
 ---
 import '../styles/global.css';
+import Badge from '../components/Badge.astro';
+import GitHubIcon from '../assets/icons/GitHub-Icon.astro';
+import AngularIcon from '../assets/icons/Angular-Icon.astro';
+import TypeScriptIcon from '../assets/icons/TS-Icon.astro';
+import PhpIcon from '../assets/icons/Php-Icon.astro';
+import MysqlIcon from '../assets/icons/MySQL-Icon.astro';
+
+// IMAGES URLs
+import gestionFormacionesEVG from '../assets/img/gestionFormacionesEVG.png';
+
+interface Project {
+    title: string;
+    description: string;
+    link: string;
+    github: string;
+    image: string;
+    images: string;
+    tags: string[];
+}
+
+const TAG_ICONS: Record<string, any> = {
+    Angular: AngularIcon,
+    TypeScript: TypeScriptIcon,
+    PHP: PhpIcon,
+    MySQL: MysqlIcon,
+};
+
 
 const PROJECTS = [
     {
-        title: 'Proyecto 1',
-        description: 'Descripción breve del proyecto 1.',
+        title: 'EVG - Gestión de Formaciones',
+        description: 'Aplicación web para gestionar las formaciones de los educadores en un centro educativo, desarrollada como Proyecto de Fin de Grado.',
         link: '#',
-        github: '#',
-        image: 'https://placehold.co/300x200',
-        tags: ['Angular', 'TypeScript']
+        github: 'https://github.com/Alvaro-Gmez/gestion-formaciones-EVG.git',
+        image: gestionFormacionesEVG,
+        tags: ['Angular', 'TypeScript', 'PHP', ]
     },
     {
         title: 'Proyecto 2',
@@ -32,18 +59,37 @@ const PROJECTS = [
 ---
 {
     PROJECTS.map(({ title, description, link, github, image, tags }) => (
-        <article class="w-full border-2 rounded-lg border-[var(--border-color)]">
-            <img src={image} alt={title} class="w-full"/>
-            <h3>{title}</h3>
-            <p>{description}</p>
+        <article class="flex flex-col justify-between w-full border-2 rounded-lg p-2 bg- border-[var(--border-color)] text-center">
             <div>
-                {tags.map(tag => (
-                    <span>{tag}</span>
-                ))}
+                <img src={image} alt={title} class="w-full lg:order-2"/>
             </div>
-            <div>
-                <a href={link} target="_blank" rel="noopener noreferrer">Ver Proyecto</a>
-                <a href={github} target="_blank" rel="noopener noreferrer">GitHub</a>
+            <div class="py-4">
+                <h3 class="font-semibold text-2xl mb-2">{title}</h3>
+                <div class="flex flex-wrap justify-center gap-2 mb-2">
+                    {tags.map(tag => {
+                        const Icon = TAG_ICONS[tag];
+                        return (
+                            <Badge>
+                                <span class="flex items-center gap-2">
+                                    {tag}
+                                    {Icon && <Icon/>}
+                                </span>
+                            </Badge>
+                        );
+                    })}
+                </div>
+                <p class="my-3 text-pretty">{description}</p>
+            </div>
+            <div class="flex justify-center gap-4 lg:order-3">
+                <a 
+                    href={github} 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="flex justify-center items-center gap-2 px-2 py-1 rounded-lg bg-purple-900 hover:bg-purple-500 hover:text-black"
+                >
+                    Ver en GitHub
+                    <GitHubIcon/>
+                </a>
             </div>
         </article>
     ))  
