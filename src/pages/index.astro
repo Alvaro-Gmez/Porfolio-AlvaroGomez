@@ -6,6 +6,8 @@ import LinkedInBadge from '../components/LinkedIn-Badge.astro';
 import LinkButton from '../components/LinkButton.astro';
 import AccordionButton from '../components/AccordionButton.astro';
 import Project from '../components/Project.astro';
+import Education from '../components/Education.astro';
+import Skills from '../components/Skills.astro';
 
 // Icons
 import ProjectIcon from '../assets/icons/Project-Icon.astro';
@@ -115,6 +117,17 @@ import '../styles/global.css';
               <Project />
             </div>
           </article>
+
+          {/* Education */}
+          <article id="education">
+            <Title title="Educación"/>
+            <Education />
+          </article>
+
+          {/* Skills */}
+          <article id="skills">
+            <Title title="Habilidades"/>
+            <Skills />
         </section>
       </main>
     </section>

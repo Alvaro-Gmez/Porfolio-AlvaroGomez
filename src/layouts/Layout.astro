@@ -91,14 +91,14 @@ const { author, description, title } = Astro.props;
 	}
 
 	.bg-animated-gradient {
-	background: linear-gradient(45deg, #a00852, #8F0A5D, #1E3F7B, #12B3FF);
-	background-size: 400% 400%;
-	animation: gradient 15s ease infinite;
+		background: linear-gradient(45deg, rgb(160, 8, 82, 0.4), rgb(143, 10, 93, 0.4), rgb(30, 63, 123, 0.4), rgb(18, 179, 255, 0.4));
+		background-size: 400% 400%;
+		animation: gradient 15s ease infinite;
 	}
 
 	@keyframes gradient {
-	0% { background-position: 0% 50%; }
-	50% { background-position: 100% 0%; }
-	100% { background-position: 0% 50%; }
+		0% { background-position: 0% 50%; }
+		50% { background-position: 100% 0%; }
+		100% { background-position: 0% 50%; }
 	}
 </style>
