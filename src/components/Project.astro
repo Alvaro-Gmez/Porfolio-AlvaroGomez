@@ -1,11 +1,18 @@
 ---
-import '../styles/global.css';
 import Badge from '../components/Badge.astro';
 import GitHubIcon from '../assets/icons/GitHub-Icon.astro';
+import HTMLIcon from '../assets/icons/HTML-Icon.astro';
+import CSSIcon from '../assets/icons/CSS-Icon.astro';
+import JavaScriptIcon from '../assets/icons/JS-Icon.astro';
 import AngularIcon from '../assets/icons/Angular-Icon.astro';
 import TypeScriptIcon from '../assets/icons/TS-Icon.astro';
+import SpringBootIcon from '../assets/icons/SpringBoot-Icon.astro';
+import BootStrapIcon from '../assets/icons/BootStrap-Icon.astro';
 import PhpIcon from '../assets/icons/Php-Icon.astro';
 import MysqlIcon from '../assets/icons/MySQL-Icon.astro';
+
+// Styles
+import '../styles/global.css';
 
 interface Project {
     title: string;
@@ -18,10 +25,16 @@ interface Project {
 }
 
 const TAG_ICONS: Record<string, any> = {
+    HTML: HTMLIcon,
+    CSS: CSSIcon,
+    JavaScript: JavaScriptIcon,
     Angular: AngularIcon,
     TypeScript: TypeScriptIcon,
+    'Spring Boot': SpringBootIcon,
+    BootStrap: BootStrapIcon,
     PHP: PhpIcon,
     MySQL: MysqlIcon,
+
 };
 
 
@@ -35,32 +48,40 @@ const PROJECTS = [
         tags: ['Angular', 'TypeScript', 'PHP', ]
     },
     {
-        title: 'Proyecto 2',
-        description: 'Descripción breve del proyecto 2.',
+        title: 'Gestor de servicios',
+        description: 'Plataforma web para la gestión de , desarrollada como Proyecto de Fin de Grado en la empresa Vitaly',
         link: '#',
-        github: '#',
-        image: 'https://placehold.co/300x200',
-        tags: ['Angular', 'TypeScript']
+        github: '',
+        image: 'public/assets/images/gestorServiciosVITALY.png',
+        tags: ['Angular', 'TypeScript', 'BootStrap', 'Spring Boot']
     },
     {
-        title: 'Proyecto 3',
-        description: 'Descripción breve del proyecto 3.',
+        title: 'Shopper Mario',
+        description: 'Juego web arcade inspirado en Mario Bros, desarrollado como parte de un proyecto escolar.',
         link: '#',
-        github: '#',
-        image: 'https://placehold.co/300x200',
-        tags: ['Angular', 'TypeScript']
-    }
+        github: 'https://github.com/Alvaro-Gmez/ABP_Shopper_Mario.git',
+        image: 'public/assets/images/shopperMario.png',
+        tags: ['HTML', 'CSS', 'JavaScript']
+    },
+    // {
+    //     title: 'Reserva de Libros - Proyecto Escolar',
+    //     description: 'Aplicación web para la reserva de libros , desarrollada como parte de un proyecto escolar.',
+    //     link: '#',
+    //     github: 'https://github.com/Alvaro-Gmez/ABP_Reservas_Libros.git',
+    //     image: '',
+    //     tags: ['Angular', 'TypeScript']
+    // }
 ];
 
 
 ---
 {
     PROJECTS.map(({ title, description, link, github, image, tags }) => (
-        <article class="flex flex-col justify-between w-full border-2 rounded-lg p-2 bg- border-[var(--border-color)] text-center">
-            <div>
+        <article class="flex flex-col justify-between border-2 rounded-lg p-2 border-[var(--border-color)] text-center transition hover:bg-[var(--hover-bg)]">
+            <div class="flex flex-col lg:flex-row lg:justify-center lg:items-center h-[217px] gap-4">
                 <img src={image} alt={title} class="w-full lg:order-2"/>
             </div>
-            <div class="py-4">
+            <div class="flex flex-col justify-between h-[205px] py-4">
                 <h3 class="font-semibold text-2xl mb-2">{title}</h3>
                 <div class="flex flex-wrap justify-center gap-2 mb-2">
                     {tags.map(tag => {
@@ -78,15 +99,24 @@ const PROJECTS = [
                 <p class="my-3 text-pretty">{description}</p>
             </div>
             <div class="flex justify-center gap-4 lg:order-3">
-                <a 
-                    href={github} 
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="flex justify-center items-center gap-2 px-2 py-1 rounded-lg bg-purple-900 hover:bg-purple-500 hover:text-black"
-                >
-                    Ver en GitHub
-                    <GitHubIcon/>
-                </a>
+                {github ? (
+                    <a 
+                        href={github} 
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="flex justify-center items-center gap-2 px-2 py-1 rounded-lg bg-purple-900 hover:bg-purple-500 hover:text-black"
+                    >
+                        Ver en GitHub
+                        <GitHubIcon/>
+                    </a>
+                ) : (
+                    <button 
+                        disabled
+                        class="flex justify-center items-center gap-2 px-2 py-1 rounded-lg bg-gray-400 text-gray-700 cursor-not-allowed"
+                    >
+                        Proyecto bajo NDA
+                    </button>
+                )}
             </div>
         </article>
     ))  
