@@ -1,7 +1,12 @@
+---
+const { width = 20, height = 20, class: className = "" } = Astro.props || {};
+---
+
 <svg 
     xmlns="http://www.w3.org/2000/svg" 
-    width="20" 
-    height="20" 
+    height={height}
+    width={width}
+    class={className}
     viewBox="0 0 1052 1052"
 >
     <path fill="#f0db4f" d="M0 0h1052v1052H0z"/>

@@ -1,5 +1,8 @@
 ---
 
+//Style
+import "../styles/global.css";
+
 // FRONTEND SKILLS
 import HTMLIcon from "../assets/icons/HTML-Icon.astro";
 import CSSIcon from "../assets/icons/CSS-Icon.astro";
@@ -29,24 +32,24 @@ import DockerIcon from "../assets/icons/Docker-Icon.astro";
 import RestfulAPIIcon from "../assets/icons/RestfulAPI-Icon.astro";
 
 const FRONTEND_SKILLS = [
-    { name: "HTML 5", icon: <HTMLIcon /> },
-    { name: "CSS 3", icon: <CSSIcon /> },
-    { name: "JavaScript", icon: <JavaScriptIcon /> },
-    { name: "TypeScript", icon: <TypeScriptIcon /> },
-    { name: "Angular", icon: <AngularIcon /> },
-    { name: "Astro",icon: <AstroIcon /> },
-    { name: "Tailwind CSS", icon: <TailwindIcon /> },
-    { name: "Bootstrap", icon: <BootStrapIcon /> },
+    { name: "HTML", icon: HTMLIcon, color: "#E34F26" },
+    { name: "CSS", icon: CSSIcon, color: "#2965F1" },
+    { name: "JavaScript", icon: JavaScriptIcon, color: "#F7DF1E" },
+    { name: "TypeScript", icon: TypeScriptIcon, color: "#3178C6" },
+    { name: "Angular", icon: AngularIcon, color: "#DD0060" },
+    { name: "Astro", icon: AstroIcon, color: "#BC52EE" },
+    { name: "Tailwind", icon: TailwindIcon, color: "#06B6D4" },
+    { name: "Bootstrap", icon: BootStrapIcon, color: "#7952B3" },
 ];
 
 const BACKEND_SKILLS = [
-    { name: "C", icon: <CIcon /> },
-    { name: "Java", icon: <JavaIcon /> },
-    { name: "PHP", icon: <PHPIcon /> },
+    { name: "C", icon: CIcon, color: "#A8B9CC" },
+    { name: "Java", icon: JavaIcon, color: "#007396" },
+    { name: "PHP", icon: PHPIcon, color: "#8993BE" },
     // { name: "Python", icon: <PythonIcon /> },
-    { name: "Spring Boot", icon: <SpringBootIcon />},
-    { name: "Node.js", icon: <NodeJSIcon /> },
-    { name: "MySQL", icon: <MySQLICon /> },
+    { name: "Spring Boot", icon: SpringBootIcon, color: "#6DB33F" },
+    { name: "NodeJS", icon: NodeJSIcon, color: "#339933" },
+    { name: "MySQL", icon: MySQLICon, color: "#4479A1" },
 ];
 
 const METHODOLOGIES = [
@@ -56,49 +59,98 @@ const METHODOLOGIES = [
 ];
 
 const OTHER_SKILLS = [
-    { name: "VS Code", icon: <VSCodeIcon /> },
-    { name: "Figma", icon: <FigmaIcon /> },
-    { name: "Jira", icon: <JiraIcon /> },
-    { name: "Postman", icon: <PostmanIcon /> },
-    { name: "Git", icon: <GitIcon /> },
-    { name: "Docker", icon: <DockerIcon /> },
-    { name: "RESTful APIs", icon: <RestfulAPIIcon /> },
+    { name: "VS Code", icon: VSCodeIcon, color: "#007ACC" },
+    { name: "Figma", icon: FigmaIcon, color: "#F24E1E" },
+    { name: "Jira", icon: JiraIcon, color: "#0052CC" },
+    { name: "Postman", icon: PostmanIcon, color: "#FF6C37" },
+    { name: "Git", icon: GitIcon, color: "#F05032" },
+    { name: "Docker", icon: DockerIcon, color: "#2496ED" },
+    { name: "RESTful APIs", icon: RestfulAPIIcon, color: "#FF6F61" },
 ];
 ---
 <section class="m-6">
-    <h3 class="text-2xl italic">FRONTEND</h3>
-    <ul class="flex gap-6">
+    <h3 class="text-2xl italic mb-10">FRONTEND</h3>
+    <ul class="flex flex-wrap gap-6 mb-10 px-4">
         {FRONTEND_SKILLS.map(skill => (
-            <li>
-                <p>{skill}</p>
-                <tooltip inert="true">{skill}</tooltip>
+            <li class="relative flex flex-col items-center group">
+                <div 
+                    class="absolute left-1/2 -translate-x-1/2 
+                        mb-2 px-3 py-1 bottom-full  
+                        rounded-lg border bg-[#0A0B18] text-sm 
+                        opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0
+                        transition duration-300 ease-out"
+                    style={`border-color: ${skill.color};`}
+                >
+                    {skill.name}
+                </div>
+                <div class="relative group">
+                    {/* capa difuminada */}
+                    <div
+                        class="absolute inset-0 rounded-[20px] blur-[3px] opacity-45"
+                        style={`background-color: ${skill.color}; box-shadow: 0 0 9px 2px ${skill.color};`}
+                    ></div>
+
+                    {/* capa principal (icono nítido) */}
+                    <div
+                        class="relative p-4 rounded-[20px] hover:border"
+                        style={`border-color: ${skill.color};`}
+                    >
+                        <skill.icon width={40} height={40} />
+                    </div>
+                </div>
             </li>
         ))}
     </ul>
-    <h3 class="text-2xl italic">BACKEND</h3>
-    <ul class="flex gap-6">
+
+
+    <h3 class="text-2xl italic mb-10">BACKEND</h3>
+    <ul class="flex flex-wrap gap-6 mb-10 px-4">
         {BACKEND_SKILLS.map(skill => (
-            <li>
-                <p>{skill}</p>
-                <tooltip inert="true">{skill}</tooltip>
+            <li class="relative flex flex-col items-center group">
+                <div 
+                    class="absolute w-fit bottom-full 
+                        left-1/2 -translate-x-1/2 mb-2 px-3 py-1 
+                        rounded-xl border-2 bg-[#0A0B18] text-sm 
+                        opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 
+                        transition duration-300 ease-out"
+                    style={`border-color: ${skill.color};`}
+                >
+                    {skill.name}
+                </div>
+                <div class="p-4 rounded-xl transition hover:scale-105" style={`background-color: ${skill.color};`}>
+                    <skill.icon/>
+                </div>
             </li>
         ))}
     </ul>
-    <h3 class="text-2xl italic">METODOLOGÍAS</h3>
-    <ul class="flex gap-6"> 
+
+    <h3 class="text-2xl italic m10-9">METODOLOGÍAS</h3>
+    <ul class="flex flex-wrap gap-6 mb-10 px-4"> 
         {METHODOLOGIES.map(skill => (
-            <li>
-                <p>{skill}</p>
-                <tooltip inert="true">{skill}</tooltip>
+            <li class="relative flex flex-col items-center group">
+                <div class="bg-[#0A0B18] text-sm">
+                    {skill.name}
+                </div>
             </li>
         ))}
     </ul>
-    <h3 class="text-2xl italic">OTROS</h3>
-    <ul class="flex gap-6">
+    
+    <h3 class="text-2xl italic mb-10">OTROS</h3>
+    <ul class="flex flex-wrap gap-6 mb-10 px-4">
         {OTHER_SKILLS.map(skill => (
-            <li>
-                <p>{skill}</p>
-                <tooltip inert="true">{skill}</tooltip>
+            <li class="relative flex flex-col items-center group">
+                <div 
+                    class="absolute w-fit bottom-full 
+                        left-1/2 -translate-x-1/2 mb-2 px-3 py-1 rounded-xl border-2 bg-[#0A0B18] text-sm 
+                        opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 
+                        transition duration-300 ease-out"
+                    style={`border-color: ${skill.color};`}
+                >
+                    {skill.name}
+                </div>
+                <div class="p-4 rounded-xl transition hover:scale-105" style={`background-color: ${skill.color};`}>
+                    <skill.icon/>
+                </div>
             </li>
         ))}
 </section>
