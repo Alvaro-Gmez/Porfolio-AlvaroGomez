@@ -1,0 +1,104 @@
+---
+
+// FRONTEND SKILLS
+import HTMLIcon from "../assets/icons/HTML-Icon.astro";
+import CSSIcon from "../assets/icons/CSS-Icon.astro";
+import JavaScriptIcon from "../assets/icons/JS-Icon.astro";
+import TypeScriptIcon from "../assets/icons/TS-Icon.astro";
+import AngularIcon from "../assets/icons/Angular-Icon.astro";
+import AstroIcon from "../assets/icons/Astro-Icon.astro";
+import TailwindIcon from "../assets/icons/Tailwind-Icon.astro";
+import SpringBootIcon from "../assets/icons/SpringBoot-Icon.astro";
+import BootStrapIcon from "../assets/icons/BootStrap-Icon.astro";
+
+// BACKEND SKILLS
+import CIcon from "../assets/icons/C-Icon.astro";
+import JavaIcon from "../assets/icons/Java-Icon.astro";
+import PHPIcon from "../assets/icons/Php-Icon.astro";
+// import PythonIcon from "../assets/icons/Python-Icon.astro";
+import NodeJSIcon from "../assets/icons/NodeJS-Icon.astro";
+import MySQLICon from "../assets/icons/MySQL-Icon.astro";
+
+// OTHER SKILLS
+import VSCodeIcon from "../assets/icons/VSCode-Icon.astro";
+import FigmaIcon from "../assets/icons/Figma-Icon.astro";
+import JiraIcon from "../assets/icons/Jira-Icon.astro";
+import PostmanIcon from "../assets/icons/Postman-Icon.astro";
+import GitIcon from "../assets/icons/Git-Icon.astro";
+import DockerIcon from "../assets/icons/Docker-Icon.astro";
+import RestfulAPIIcon from "../assets/icons/RestfulAPI-Icon.astro";
+
+const FRONTEND_SKILLS = [
+    { name: "HTML 5", icon: <HTMLIcon /> },
+    { name: "CSS 3", icon: <CSSIcon /> },
+    { name: "JavaScript", icon: <JavaScriptIcon /> },
+    { name: "TypeScript", icon: <TypeScriptIcon /> },
+    { name: "Angular", icon: <AngularIcon /> },
+    { name: "Astro",icon: <AstroIcon /> },
+    { name: "Tailwind CSS", icon: <TailwindIcon /> },
+    { name: "Bootstrap", icon: <BootStrapIcon /> },
+];
+
+const BACKEND_SKILLS = [
+    { name: "C", icon: <CIcon /> },
+    { name: "Java", icon: <JavaIcon /> },
+    { name: "PHP", icon: <PHPIcon /> },
+    // { name: "Python", icon: <PythonIcon /> },
+    { name: "Spring Boot", icon: <SpringBootIcon />},
+    { name: "Node.js", icon: <NodeJSIcon /> },
+    { name: "MySQL", icon: <MySQLICon /> },
+];
+
+const METHODOLOGIES = [
+    { name: "Agile" },
+    { name: "Scrum" },
+    { name: "Kanban" },
+];
+
+const OTHER_SKILLS = [
+    { name: "VS Code", icon: <VSCodeIcon /> },
+    { name: "Figma", icon: <FigmaIcon /> },
+    { name: "Jira", icon: <JiraIcon /> },
+    { name: "Postman", icon: <PostmanIcon /> },
+    { name: "Git", icon: <GitIcon /> },
+    { name: "Docker", icon: <DockerIcon /> },
+    { name: "RESTful APIs", icon: <RestfulAPIIcon /> },
+];
+---
+<section class="m-6">
+    <h3 class="text-2xl italic">FRONTEND</h3>
+    <ul class="flex gap-6">
+        {FRONTEND_SKILLS.map(skill => (
+            <li>
+                <p>{skill}</p>
+                <tooltip inert="true">{skill}</tooltip>
+            </li>
+        ))}
+    </ul>
+    <h3 class="text-2xl italic">BACKEND</h3>
+    <ul class="flex gap-6">
+        {BACKEND_SKILLS.map(skill => (
+            <li>
+                <p>{skill}</p>
+                <tooltip inert="true">{skill}</tooltip>
+            </li>
+        ))}
+    </ul>
+    <h3 class="text-2xl italic">METODOLOGÍAS</h3>
+    <ul class="flex gap-6"> 
+        {METHODOLOGIES.map(skill => (
+            <li>
+                <p>{skill}</p>
+                <tooltip inert="true">{skill}</tooltip>
+            </li>
+        ))}
+    </ul>
+    <h3 class="text-2xl italic">OTROS</h3>
+    <ul class="flex gap-6">
+        {OTHER_SKILLS.map(skill => (
+            <li>
+                <p>{skill}</p>
+                <tooltip inert="true">{skill}</tooltip>
+            </li>
+        ))}
+</section>
