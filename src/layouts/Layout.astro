@@ -18,7 +18,7 @@ const { author, description, title } = Astro.props;
 		<meta name="description" content={description} />
 		<meta name="author" content={author} />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="img/jpg" href="/assets/images/alvaro_avatar.png"/>
+		<link rel="icon" type="img/jpg" href="/assets/images/alvaro_avatar.webp"/>
 		<meta name="generator" content={Astro.generator} />
 		<title>{ title }</title>
 	</head>
@@ -68,7 +68,7 @@ const { author, description, title } = Astro.props;
 
 	aside{
 		width: 251px;
-		height: 860px;
+		height: 90vh;
 		background-color: var(--main-bg);
 		backdrop-filter: blur(15px);
 		border-right: 1px solid var(--border-color);
@@ -76,7 +76,8 @@ const { author, description, title } = Astro.props;
 	}
 
 	nav {
-		width: 999px;
+		width: 100vh;
+		height: 4.5vh;
 		background-color: var(--main-bg);
 		backdrop-filter: blur(15px);
 		border-bottom: 1px solid var(--border-color);
@@ -84,8 +85,8 @@ const { author, description, title } = Astro.props;
 	}
 
 	main {
-		width: 999px;
-		height: 803px;
+		width: 100vh;
+		height: 85.5vh;
 		background-color: var(--main-bg);
 		backdrop-filter: blur(15px);
 		border-radius: 0 0 25px 0;
