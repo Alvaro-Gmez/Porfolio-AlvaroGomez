@@ -6,8 +6,9 @@ import Layout from '../layouts/Layout.astro';
 import Title from '../components/Title.astro'
 import WindowButton from '../components/WindowButton.astro';
 import LinkedInBadge from '../components/LinkedIn-Badge.astro';
-import LinkButton from '../components/LinkButton.astro';
 import AccordionButton from '../components/AccordionButton.astro';
+import LinkButton from '../components/LinkButton.astro';
+import Jobs from '../components/Jobs.astro';
 import Project from '../components/Project.astro';
 import Education from '../components/Education.astro';
 import Skills from '../components/Skills.astro';
@@ -49,10 +50,13 @@ import avatar from '/public/assets/images/alvaro_avatar.webp';
         <WindowButton class="bg-green-500" href="assets/icons/full-screen-icon.png" alt="Full screen"/>
       </div>
       <div class="px-8 pt-6">
-        <div class="mb-6">
+        <div class="flex flex-col gap-1.5 mb-6">
           <AccordionButton title="Categorias"/>
           <LinkButton href="#about">
             <AboutIcon/>Sobre mí
+          </LinkButton>
+          <LinkButton href="#jobs">
+            <JobsIcon/>Experiencia
           </LinkButton>
           <LinkButton href="#projects">
             <ProjectIcon/>Projectos
@@ -63,11 +67,8 @@ import avatar from '/public/assets/images/alvaro_avatar.webp';
           <LinkButton href="#skills">
             <SkillIcon/>Habilidades
           </LinkButton>
-          <!-- <LinkButton href="#jobs">
-            <JobsIcon/>Experiencia
-          </LinkButton> -->
         </div>
-        <div class="mb-6">
+        <div class="flex flex-col gap-1.5 mb-6">
           <AccordionButton title="Contactos"/>
           <LinkButton href={linkedInUrl} target="_blank" rel="noopener">
             <LinkedInIcon/>LinkedIn
@@ -78,11 +79,23 @@ import avatar from '/public/assets/images/alvaro_avatar.webp';
           <LinkButton href={instagramUrl} target="_blank" rel="noopener">
             <InstagramIcon/>Instagram
           </LinkButton>
-          <LinkButton href="tel:+34672775698">
+          <LinkButton class="copy-btn" data-copy="+34672775698" aria-label="Copiar correo">
             <PhoneIcon/>Teléfono
+            <span class="absolute px-3 py-2 text-sm rounded-lg bg-[var(--main-bg)] backdrop-blur-lg border border-[--border-color] text-white 
+                          transition-all duration-500 transform translate-y-10 translate-x-1
+                          opacity-0 pointer-events-none copy-tooltip"
+            >
+              ¡Teléfono copiado!✅
+            </span>
           </LinkButton>
-          <LinkButton href="mailto:gomezdelgadoalvaro04@gmail.com">
+          <LinkButton class="copy-btn" data-copy="gomezdelgadoalvaro04@gmail.com" aria-label="Copiar correo">
             <EmailIcon/>Correo
+            <span class="absolute px-3 py-2 text-sm rounded-lg bg-[var(--main-bg)] backdrop-blur-lg border border-[--border-color] text-white 
+                          transition-all duration-500 transform translate-y-10 translate-x-1
+                          opacity-0 pointer-events-none copy-tooltip"
+            >
+              ¡Correo copiado!✅
+            </span>
           </LinkButton>
         </div>
       </div>
@@ -112,15 +125,20 @@ import avatar from '/public/assets/images/alvaro_avatar.webp';
                 <a href="public/Álvaro_Gómez_CV.pdf" download="Álvaro_Gómez_CV.pdf" class="w-fit rounded-full px-4 py-1 bg-white/60 text-black transition hover:bg-white/90 hover:scale-105">
                   <button>Descargar CV</button>
                 </a>
-                <!-- <button class="w-fit rounded-full px-4 py-1 bg-white/60 text-black transition hover:bg-white/90 hover:scale-105">
-                  gomezdelgadoalvaro04@gmail.com
-                </button> -->
               </div>
             </div>
 
             {/* Avatar Image */}
             <div class="flex items-center justify-center w-1/3">
               <Image src={avatar} alt="Avatar de Álvaro Gómez" loading="eager" class="animate-float" />
+            </div>
+          </article>
+
+          {/* Jobs */}
+          <article id="jobs" class="mt-10">
+            <Title title="Mi Experiencia"/>
+            <div class="p-4 bg-[var(--main-bg)] rounded-2xl">
+              <Jobs />
             </div>
           </article>
     
@@ -144,8 +162,48 @@ import avatar from '/public/assets/images/alvaro_avatar.webp';
           <article id="skills">
             <Title title="Mis Habilidades"/>
             <Skills />
+          </article>
         </section>
       </main>
     </section>
   </section>
+
+  <script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Recoger los botones de copia
+      const buttons = document.querySelectorAll(".copy-btn");
+
+      // Recorre cada boton y añade el evento de click
+      buttons.forEach(btn => {
+        btn.addEventListener("click", async (e) => {
+          e.preventDefault();
+
+          // Comprueba que el click viene del boton
+          const target = e.target.closest(".copy-btn");
+          if (!target) return;
+
+          // Recoge el valor a copiar
+          const value = btn.getAttribute("data-copy");
+          if (!value) return;
+
+          try {
+            await navigator.clipboard.writeText(value);
+
+            const tooltip = btn.querySelector(".copy-tooltip");
+            if(tooltip) {
+              tooltip.classList.remove("opacity-0", "pointer-events-none", "translate-y-1");
+              tooltip.classList.add("opacity-100", "-translate-y-1");
+              
+              setTimeout(() => {
+                tooltip.classList.add("opacity-0", "pointer-events-none", "translate-y-1");
+                tooltip.classList.remove("opacity-100", "-translate-y-1");
+              }, 1200);
+            }
+          } catch (err) {
+            console.error("Error al copiar", err);
+          }
+        });
+      });
+    });
+  </script>
 </Layout>
