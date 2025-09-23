@@ -14,15 +14,21 @@ import MysqlIcon from '../assets/icons/MySQL-Icon.astro';
 // Styles
 import '../styles/global.css';
 
+// Images
+import { Image } from 'astro:assets';
+import evgImage from '/public/assets/images/gestion_formaciones_evg.webp';
+import gestorServiciosImage from '/public/assets/images/gestorServicios_vitaly.webp';
+import shopperMarioImage from '/public/assets/images/shopper_mario.webp';
+import { imageMetadata } from 'astro/assets/utils';
+
 interface Project {
     title: string;
     description: string;
     link: string;
     github: string;
     image: string;
-    images: string;
     tags: string[];
-}
+} 
 
 // Map tags with icons
 const TAG_ICONS: Record<string, any> = {
@@ -45,7 +51,7 @@ const PROJECTS = [
         description: 'Aplicación web para gestionar las formaciones de los educadores en un centro educativo, desarrollada como Proyecto de Fin de Grado.',
         link: '#',
         github: 'https://github.com/Alvaro-Gmez/gestion-formaciones-EVG.git',
-        image: 'public/assets/images/evg.png',
+        image: evgImage,
         tags: ['Angular', 'TypeScript', 'PHP', ]
     },
     {
@@ -53,7 +59,7 @@ const PROJECTS = [
         description: 'Plataforma web para la gestión de , desarrollada como Proyecto de Fin de Grado en la empresa Vitaly',
         link: '#',
         github: '',
-        image: 'public/assets/images/gestorServiciosVITALY.png',
+        image: gestorServiciosImage,
         tags: ['Angular', 'TypeScript', 'BootStrap', 'Spring Boot']
     },
     {
@@ -61,16 +67,10 @@ const PROJECTS = [
         description: 'Juego web arcade inspirado en Mario Bros, desarrollado como parte de un proyecto escolar.',
         link: '#',
         github: 'https://github.com/Alvaro-Gmez/ABP_Shopper_Mario.git',
-        image: 'public/assets/images/shopperMario.png',
+        image: shopperMarioImage,
         tags: ['HTML', 'CSS', 'JavaScript']
     }
 ];
-
-// Images
-import { Image } from 'astro:assets';
-import evgImage from '/public/assets/images/evg.png';
-import gestorServiciosImage from '/public/assets/images/gestorServiciosVITALY.png';
-import shopperMarioImage from '/public/assets/images/shopperMario.png';
 ---
 {
     PROJECTS.map(({ title, description, link, github, image, tags }) => (
@@ -81,7 +81,7 @@ import shopperMarioImage from '/public/assets/images/shopperMario.png';
         >
             <div class="flex justify-center mt-4">
                 <img 
-                    src={image} 
+                    src={typeof image === 'string' ? image : image.src} 
                     alt={title} 
                     class="h-[150px] transition-transform duration-500 group-hover:scale-110"
                 />
