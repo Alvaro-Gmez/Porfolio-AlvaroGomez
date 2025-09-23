@@ -1,0 +1,129 @@
+---
+import Badge from '../components/Badge.astro';
+import GitHubIcon from '../assets/icons/GitHub-Icon.astro';
+import HTMLIcon from '../assets/icons/HTML-Icon.astro';
+import CSSIcon from '../assets/icons/CSS-Icon.astro';
+import JavaScriptIcon from '../assets/icons/JS-Icon.astro';
+import AngularIcon from '../assets/icons/Angular-Icon.astro';
+import TypeScriptIcon from '../assets/icons/TS-Icon.astro';
+import SpringBootIcon from '../assets/icons/SpringBoot-Icon.astro';
+import BootStrapIcon from '../assets/icons/BootStrap-Icon.astro';
+import PhpIcon from '../assets/icons/Php-Icon.astro';
+import MysqlIcon from '../assets/icons/MySQL-Icon.astro';
+
+// Styles
+import '../styles/global.css';
+
+// Images
+import { Image } from 'astro:assets';
+import evgImage from '/public/assets/images/gestion_formaciones_evg.webp';
+import gestorServiciosImage from '/public/assets/images/gestorServicios_vitaly.webp';
+import shopperMarioImage from '/public/assets/images/shopper_mario.webp';
+import { imageMetadata } from 'astro/assets/utils';
+
+interface Project {
+    title: string;
+    description: string;
+    link: string;
+    github: string;
+    image: string;
+    imageClass: string;
+    tags: string[];
+} 
+
+// Map tags with icons
+const TAG_ICONS: Record<string, any> = {
+    HTML: HTMLIcon,
+    CSS: CSSIcon,
+    JavaScript: JavaScriptIcon,
+    Angular: AngularIcon,
+    TypeScript: TypeScriptIcon,
+    'Spring Boot': SpringBootIcon,
+    BootStrap: BootStrapIcon,
+    PHP: PhpIcon,
+    MySQL: MysqlIcon,
+
+};
+
+// Sample project data
+const PROJECTS = [
+    {
+        title: 'EVG - Gestión de Formaciones',
+        description: 'Aplicación web para gestionar las formaciones de los educadores en un centro educativo, desarrollada como Proyecto de Fin de Grado.',
+        link: '#',
+        github: 'https://github.com/Alvaro-Gmez/gestion-formaciones-EVG.git',
+        image: evgImage,
+        tags: ['Angular', 'TypeScript', 'PHP', ]
+    },
+    {
+        title: 'Gestor de servicios',
+        description: 'Plataforma web para la gestión de , desarrollada como Proyecto de Fin de Grado en la empresa Vitaly',
+        link: '#',
+        github: '',
+        image: gestorServiciosImage,
+        tags: ['Angular', 'TypeScript', 'BootStrap', 'Spring Boot']
+    },
+    {
+        title: 'Shopper Mario',
+        description: 'Juego web arcade inspirado en Mario Bros, desarrollado como parte de un proyecto escolar.',
+        link: '#',
+        github: 'https://github.com/Alvaro-Gmez/ABP_Shopper_Mario.git',
+        image: shopperMarioImage,
+        tags: ['HTML', 'CSS', 'JavaScript']
+    }
+];
+---
+{
+    PROJECTS.map(({ title, description, link, github, image, tags }) => (
+        <article 
+            class="flex flex-col group relative 
+                    rounded-2xl border border-[var(--border-color)] bg-[var(--main-bg)] backdrop-blur-lg
+                    transition-transform hover:scale-[1.02] hover:shadow-xl hover:shadow-black/20"
+        >
+            <div class="flex justify-center mt-4">
+                <img 
+                    src={typeof image === 'string' ? image : image.src} 
+                    alt={title} 
+                    class="transition-transform duration-500 group-hover:scale-105"
+                />
+            </div>
+            <div class="flex flex-col flex-1 p-4 text-center">
+                <h3 class="font-semibold text-2xl mb-3">{title}</h3>
+                <div class="flex flex-wrap justify-center gap-2 mb-3">
+                    {tags.map(tag => {
+                        const Icon = TAG_ICONS[tag];
+                        return (
+                            <Badge>
+                                <span class="flex items-center gap-2">
+                                    {tag}
+                                    {Icon && <Icon/>}
+                                </span>
+                            </Badge>
+                        );
+                    })}
+                </div>
+                <p class="my-3 text-pretty">{description}</p>
+            </div>
+            <div class="mt-auto flex justify-center gap-4 mb-3">
+                {github ? (
+                    <a 
+                    href={github} 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="flex items-center gap-2 px-3 py-2 rounded-lg bg-purple-900/80 text-white text-sm transition hover:bg-purple-500 hover:text-black"
+                    >
+                    Ver en GitHub
+                    <GitHubIcon class="w-5 h-5"/>
+                    </a>
+                ) : (
+                    <button 
+                    disabled
+                    class="flex items-center gap-2 px-3 py-2 rounded-lg bg-gray-500/40 text-gray-400 text-sm cursor-not-allowed"
+                    >
+                    Proyecto bajo NDA
+                    </button>
+                )}
+            </div>
+        </article>
+    ))  
+}

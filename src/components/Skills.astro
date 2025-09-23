@@ -1,0 +1,185 @@
+---
+
+//Style
+import "../styles/global.css";
+
+// FRONTEND SKILLS
+import HTMLIcon from "../assets/icons/HTML-Icon.astro";
+import CSSIcon from "../assets/icons/CSS-Icon.astro";
+import JavaScriptIcon from "../assets/icons/JS-Icon.astro";
+import TypeScriptIcon from "../assets/icons/TS-Icon.astro";
+import AngularIcon from "../assets/icons/Angular-Icon.astro";
+import AstroIcon from "../assets/icons/Astro-Icon.astro";
+import TailwindIcon from "../assets/icons/Tailwind-Icon.astro";
+import SpringBootIcon from "../assets/icons/SpringBoot-Icon.astro";
+import BootstrapIcon from "../assets/icons/BootStrap-Icon.astro";
+
+// BACKEND SKILLS
+import CIcon from "../assets/icons/C-Icon.astro";
+import JavaIcon from "../assets/icons/Java-Icon.astro";
+import PHPIcon from "../assets/icons/Php-Icon.astro";
+// import PythonIcon from "../assets/icons/Python-Icon.astro";
+import NodeJSIcon from "../assets/icons/NodeJS-Icon.astro";
+import MySQLICon from "../assets/icons/MySQL-Icon.astro";
+
+// OTHER SKILLS
+import VSCodeIcon from "../assets/icons/VSCode-Icon.astro";
+import FigmaIcon from "../assets/icons/Figma-Icon.astro";
+import JiraIcon from "../assets/icons/Jira-Icon.astro";
+import PostmanIcon from "../assets/icons/Postman-Icon.astro";
+import GitIcon from "../assets/icons/Git-Icon.astro";
+import DockerIcon from "../assets/icons/Docker-Icon.astro";
+
+const FRONTEND_SKILLS = [
+    { name: "HTML", icon: HTMLIcon, color: "#E34F26" },
+    { name: "CSS", icon: CSSIcon, color: "#264de4" },
+    { name: "JavaScript", icon: JavaScriptIcon, color: "#f0db4f" },
+    { name: "TypeScript", icon: TypeScriptIcon, color: "#3178C6" },
+    { name: "Angular", icon: AngularIcon, color: "#DC087D" },
+    { name: "Astro", icon: AstroIcon, color: "#FF5D01" },
+    { name: "Tailwind", icon: TailwindIcon, color: "#38BDF8" },
+    { name: "Bootstrap", icon: BootstrapIcon, color: "#7E13F8" },
+];
+
+const BACKEND_SKILLS = [
+    { name: "C", icon: CIcon, color: "#00599C" },
+    { name: "Java", icon: JavaIcon, color: "#E76F00" },
+    { name: "PHP", icon: PHPIcon, color: "#777BB4" },
+    // { name: "Python", icon: <PythonIcon /> },
+    { name: "Spring Boot", icon: SpringBootIcon, color: "#68bd45" },
+    { name: "NodeJS", icon: NodeJSIcon, color: "#6CC04A" },
+    { name: "MySQL", icon: MySQLICon, color: "#00546B" },
+];
+
+const OTHER_SKILLS = [
+    { name: "VS Code", icon: VSCodeIcon, color: "#0065A9" },
+    { name: "Figma", icon: FigmaIcon, color: "#F24E1E" },
+    { name: "Jira", icon: JiraIcon, color: "#0052CC" },
+    { name: "Postman", icon: PostmanIcon, color: "#FF6C37" },
+    { name: "Git", icon: GitIcon, color: "#DE4C36" },
+    { name: "Docker", icon: DockerIcon, color: "#008fe2" },
+];
+
+const METHODOLOGIES = [
+    { name: "Agile" },
+    { name: "Scrum" },
+    { name: "Kanban" },
+];
+---
+<section class="m-6">
+    <h3 class="text-2xl italic mb-5">FRONTEND</h3>
+    <ul class="flex flex-wrap gap-6 mb-10 px-4">
+        {FRONTEND_SKILLS.map(skill => (
+            <li class="relative flex flex-col items-center group">
+                <div 
+                    class="absolute left-1/2 -translate-x-1/2 mb-2 px-3 py-1 bottom-full  
+                        rounded-lg border bg-[#0A0B18] text-sm text-pretty
+                        opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0
+                        transition duration-300 ease-out"
+                    style={`border-color: ${skill.color};`}
+                >
+                    {skill.name}
+                </div>
+                <div class="relative group">
+                    {/* capa difuminada */}
+                    <div
+                        class="absolute inset-0 rounded-[20px] blur-[3px] opacity-45"
+                        style={`background-color: ${skill.color}; box-shadow: 0 0 9px 2px ${skill.color};`}
+                    ></div>
+
+                    {/* capa principal (icono nítido) */}
+                    <div
+                        class="relative p-4 rounded-[20px] hover:border"
+                        style={`border-color: ${skill.color};`}
+                    >
+                        <skill.icon width={40} height={40} />
+                    </div>
+                </div>
+            </li>
+        ))}
+    </ul>
+
+
+    <h3 class="text-2xl italic mb-5">BACKEND</h3>
+    <ul class="flex flex-wrap gap-6 mb-10 px-4">
+        {BACKEND_SKILLS.map(skill => (
+            <li class="relative flex flex-col items-center group">
+                <div 
+                    class="absolute left-1/2 -translate-x-1/2 mb-2 px-3 py-1 bottom-full  
+                        rounded-lg border bg-[#0A0B18] text-sm text-pretty 
+                        opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0
+                        transition duration-300 ease-out"
+                    style={`border-color: ${skill.color};`}
+                >
+                    {skill.name}
+                </div>
+                <div class="relative group">
+                    {/* capa difuminada */}
+                    <div
+                        class="absolute inset-0 rounded-[20px] blur-[3px] opacity-45"
+                        style={`background-color: ${skill.color}; box-shadow: 0 0 9px 2px ${skill.color};`}
+                    ></div>
+
+                    {/* capa principal (icono nítido) */}
+                    <div
+                        class="relative p-4 rounded-[20px] hover:border"
+                        style={`border-color: ${skill.color};`}
+                    >
+                        <skill.icon width={40} height={40} />
+                    </div>
+                </div>
+            </li>
+        ))}
+    </ul>
+
+    <h3 class="text-2xl italic mb-5">OTROS</h3>
+    <ul class="flex flex-wrap gap-6 mb-10 px-4">
+        {OTHER_SKILLS.map(skill => (
+            <li class="relative flex flex-col items-center group">
+                <div 
+                    class="absolute left-1/2 -translate-x-1/2 mb-2 px-3 py-1 bottom-full  
+                        rounded-lg border bg-[#0A0B18] text-sm text-pretty 
+                        opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0
+                        transition duration-300 ease-out"
+                    style={`border-color: ${skill.color};`}
+                >
+                    {skill.name}
+                </div>
+                <div class="relative group">
+                    {/* capa difuminada */}
+                    <div
+                        class="absolute inset-0 rounded-[20px] blur-[3px] opacity-45"
+                        style={`background-color: ${skill.color}; box-shadow: 0 0 9px 2px ${skill.color};`}
+                    ></div>
+
+                    {/* capa principal (icono nítido) */}
+                    <div
+                        class="relative p-4 rounded-[20px] hover:border"
+                        style={`border-color: ${skill.color};`}
+                    >
+                        <skill.icon width={40} height={40} />
+                    </div>
+                </div>
+            </li>
+        ))}
+    </ul>
+
+    <h3 class="text-2xl italic mb-5">METODOLOGÍAS</h3>
+    <ul class="flex flex-wrap gap-6 mb-10 px-4"> 
+        {METHODOLOGIES.map(skill => (
+            <li class="relative flex flex-col items-center group">
+                <div class="relative group">
+                    <div class="absolute inset-0 rounded-[20px] blur-[3px] opacity-45"
+                        style={`background-color: #c2c6da; box-shadow: 0 0 9px 2px #c2c6da;`}
+                    ></div>
+                    
+                    <div 
+                        class="relative py-3 px-4 rounded-[20px] hover:border border-[#c2c6da]"
+                    >
+                        <span class="text-pretty">{skill.name}</span>
+                    </div>
+                </div>
+            </li>
+        ))}
+    </ul>
+</section>

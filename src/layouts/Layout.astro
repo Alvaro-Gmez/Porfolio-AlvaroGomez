@@ -1,38 +1,57 @@
 ---
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
-import '@fontsource-variable/onest'	
+import '@fontsource-variable/onest';
+
 
 interface Props {
-	title: string;
+	author: string;
 	description: string;
+	title: string;
 }
 
-const { description, title } = Astro.props;
+const { author, description, title } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="es">
 	<head>
 		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="author" content={author} />
 		<meta name="viewport" content="width=device-width" />
-		<meta name="description" content={ description } />
-		<meta name="generator" content={ Astro.generator } />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="img/jpg" href="/assets/images/alvaro_avatar.webp"/>
+		<meta name="generator" content={Astro.generator} />
 		<title>{ title }</title>
 	</head>
 	<body>
-		<div class="absolute top-0 z-[-2] h-100vh w-full bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]">
-			<Header />
-			<slot />
-			<Footer />
-		</div>
+		<video autoplay loop muted playsinline class="fixed top-0 left-0 w-full h-full object-cover -z-10">
+			<source src="/assets/videos/bg3.mp4" type="video/mp4" />
+			Tu navegador no soporta el video.
+		</video>
+		<slot />
 	</body>
 </html>
 
 <style is:global>
 	:root {
 		color-scheme: light dark;
+		--border-color: rgba(113 119 144 / 25%);
+		--main-bg: rgba(16, 18, 27, 0.35);
+		--hover-bg: rgba(15, 17, 26, 0.4);
+		--main-text: #DEDEDE;
+		/* --background-dif: rgba(18, 18, 18, 0.5); */
+	}
+
+	::-webkit-scrollbar {
+		width: 4px;
+	}
+
+	::-webkit-scrollbar-track {
+		background: transparent;
+	}
+
+	::-webkit-scrollbar-thumb {
+		background-color: rgba(113 119 144 / 30%);
+		border-radius: 0px 0px 10px 10px;;
 	}
 
 	html {
@@ -42,12 +61,47 @@ const { description, title } = Astro.props;
 
 	body {
 		display: flex;
-		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		min-height: 100vh;
+		color: var(--main-text);
 	}
 
-	@media(prefers-reduce-motion: reduce) {
-		html {
-			scroll-behavior: auto; 
-		}
+	aside{
+		width: 251px;
+		height: 90vh;
+		background-color: var(--main-bg);
+		backdrop-filter: blur(15px);
+		border-right: 1px solid var(--border-color);
+		border-radius: 25px 0 0 25px;
+	}
+
+	nav {
+		width: 100vh;
+		height: 6vh;
+		background-color: var(--main-bg);
+		backdrop-filter: blur(15px);
+		border-bottom: 1px solid var(--border-color);
+		border-radius: 0 25px 0 0;
+	}
+
+	main {
+		width: 100vh;
+		height: 84vh;
+		background-color: var(--main-bg);
+		backdrop-filter: blur(15px);
+		border-radius: 0 0 25px 0;
+	}
+
+	.bg-animated-gradient {
+		background: linear-gradient(45deg, rgb(160, 8, 82, 0.4), rgb(143, 10, 93, 0.4), rgb(30, 63, 123, 0.4), rgb(18, 179, 255, 0.4));
+		background-size: 400% 400%;
+		animation: gradient 15s ease infinite;
+	}
+
+	@keyframes gradient {
+		0% { background-position: 0% 50%; }
+		50% { background-position: 100% 0%; }
+		100% { background-position: 0% 50%; }
 	}
 </style>

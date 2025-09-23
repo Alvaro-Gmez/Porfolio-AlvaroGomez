@@ -1,0 +1,60 @@
+---
+
+
+const EDUCATIONS = [
+    {
+        degree: "Curso de Especialización en Inteligencia Artificial y Big Data",
+        institution: "Instituto de Secundario (IES) Augustobriga, Navalmoral de la Mata, Cáceres",
+        startDate: "Septiembre 2025",
+        endDate: "Actualidad",
+        description: "Aprendiendo a desarrollar modelos de inteligencia artificial con diferentes tecnologías, machine learning, redes neuronales o procesamiento de lenguaje no natural (PNL), así como analizar, tratar y extraer conocimiento de grandes volúmenes de datos.",
+    },
+    {
+        degree: "Ciclo de Grado Superior en Desarrollo de Aplicaciones Web",
+        institution: "Escuela Virgen de Guadalupe, Badajoz",
+        startDate: "Septiembre 2023",
+        endDate: "Junio 2025",
+        description: "Formación avanzada en desarrollo web, incluyendo programación, diseño de interfaces, bases de datos y tecnologías web modernas. Tambien pude aprender y trabajar con tecnologías como Angular, Node.js, Spring Boot, entre otras en proyectos tanto individuales como en equipo.",
+    },
+    {
+        degree: "Ciclo de Grado Medio en Sistemas Microinformáticos y Redes",
+        institution: "Escuela Virgen de Guadalupe, Badajoz",
+        startDate: "Septiembre 2020",
+        endDate: "Junio 2022",
+        description: "Formación técnica en instalación, configuración y mantenimiento de sistemas informáticos y redes, incluyendo hardware, software y seguridad informática. Adquirí habilidades prácticas en resolución de problemas técnicos y soporte a usuarios."
+    }
+]
+---
+
+
+<ol class="relative m-6 border-s border-gray-200 dark:border-gray-700">
+    {
+        EDUCATIONS.map(({institution, degree, startDate, endDate, description}) => (
+            <li class="mb-10 ms-7">            
+                <span class="flex items-center justify-center absolute w-6 h-6 bg-gray-800 rounded-lg -start-3 ring-8 ring-white">
+                    <svg  
+                        xmlns="http://www.w3.org/2000/svg"  
+                        width="20"  
+                        height="20"  
+                        viewBox="0 0 24 24"  
+                        fill="none"  
+                        stroke="currentColor"  
+                        stroke-width="2"  
+                        stroke-linecap="round"  
+                        stroke-linejoin="round"  
+                        class="icon icon-tabler icons-tabler-outline icon-tabler-school"
+                        >
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M22 9l-10 -4l-10 4l10 4l10 -4v6" />
+                            <path d="M6 10.6v5.4a6 3 0 0 0 12 0v-5.4" />
+                        </svg>
+                </span>
+                <h3 class="flex items-center mb-1 text-2xl font-semibold text-white/80 dark:text-white ">{degree}</h3>
+                <h4 class="mb-3 text-md font-semibold text-white/80 dark:text-white italic">{institution}</h4>
+                <time class="block mb-2 text-sm leading-none text-gray-400 dark:text-gray-500">· {startDate} - {endDate} ·</time>
+                <p class="mb-4 text-base font-normal text-white/80 dark:text-gray-400">{description}</p>
+            </li>
+        ))
+    }              
+</ol>
+
