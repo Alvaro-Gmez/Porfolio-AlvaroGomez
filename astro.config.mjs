@@ -1,10 +1,8 @@
-// @ts-check
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 
-// https://astro.build/config
 export default defineConfig({
-  site: 'https://github.com/Alvaro-Gmez/Porfolio-AlvaroGomez',
-  base: '/',
+  site: 'https://alvaro-gmez.github.io/Porfolio-AlvaroGomez/',
+  base: '/Porfolio-AlvaroGomez/',
   integrations: [tailwind()]
 });
