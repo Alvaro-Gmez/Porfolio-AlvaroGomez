@@ -27,6 +27,7 @@ interface Project {
     link: string;
     github: string;
     image: string;
+    imageClass: string;
     tags: string[];
 } 
 
@@ -83,7 +84,7 @@ const PROJECTS = [
                 <img 
                     src={typeof image === 'string' ? image : image.src} 
                     alt={title} 
-                    class="h-[150px] transition-transform duration-500 group-hover:scale-110"
+                    class="transition-transform duration-500 group-hover:scale-105"
                 />
             </div>
             <div class="flex flex-col flex-1 p-4 text-center">
