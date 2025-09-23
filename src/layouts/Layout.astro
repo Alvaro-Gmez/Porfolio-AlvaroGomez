@@ -2,7 +2,6 @@
 import '@fontsource-variable/onest';
 import '../styles/global.css';
 
-
 interface Props {
 	author: string;
 	description: string;
@@ -24,8 +23,15 @@ const { author, description, title } = Astro.props;
 		<title>{ title }</title>
 	</head>
 	<body>
-		<video autoplay loop muted playsinline class="fixed top-0 left-0 w-full h-full object-cover -z-10">
-			<source src="./assets/videos/bg3.mp4" type="video/mp4" />
+		<video 
+			autoplay 
+			loop 
+			muted 
+			playsinline 
+			preload="none" 
+			class="fixed top-0 left-0 w-full h-full object-cover -z-10"
+		>
+			<source src="./assets/videos/bg.mp4" type="video/mp4" />
 			Tu navegador no soporta el video.
 		</video>
 		<slot />
@@ -57,6 +63,7 @@ const { author, description, title } = Astro.props;
 
 	html {
 		font-family: 'Onest Variable', system-ui, sans-serif;
+		font-display: swap;
 		scroll-behavior: smooth;
 	}
 
