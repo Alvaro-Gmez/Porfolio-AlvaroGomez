@@ -44,55 +44,67 @@ import avatar from '/public/assets/images/alvaro_avatar.webp';
   <section class="flex">
     {/* Sidebar */}
     <aside>
-      <div class="flex items-center h-[6vh] group py-5 px-7 border-b border-[--border-color]">
+      <div class="flex justify-start items-center group h-[6vh] pl-6 border-b border-[--border-color]">
         <WindowButton class="bg-red-500" href="assets/icons/close-icon.png" alt="Close"/>
         <WindowButton class="bg-yellow-500" href="assets/icons/subtract-icon.png" alt="Minimize"/>
         <WindowButton class="bg-green-500" href="assets/icons/full-screen-icon.png" alt="Full screen"/>
       </div>
-      <div class="px-8 pt-6">
-        <div class="flex flex-col gap-1.5 mb-6">
-          <AccordionButton title="Categorias"/>
-          <LinkButton href="#about">
-            <AboutIcon/>Sobre mí
+      <div class="px-5">
+        <div class="flex flex-col gap-1.5 my-6">
+          <AccordionButton title="Categorias" />
+          <LinkButton class="tooltip-container" href="#about" title="Sobre mí">
+            <AboutIcon/>
+            <span class="hidden 2xl:inline">Sobre mí</span>
           </LinkButton>
-          <!-- <LinkButton href="#jobs">
-            <JobsIcon/>Experiencia
+          <!-- <LinkButton class="tooltip-container" href="#jobs" title="Experiencia">
+            <JobsIcon/><span class="hidden 2xl:inline">Experiencia</span>
           </LinkButton> -->
-          <LinkButton href="#projects">
-            <ProjectIcon/>Projectos
+          <LinkButton class="tooltip-container" href="#projects" title="Proyectos">
+            <ProjectIcon/>
+            <span class="hidden 2xl:inline">Proyectos</span>
           </LinkButton>
-          <LinkButton href="#education">
-            <EducationIcon/>Educación
+          <LinkButton class="tooltip-container" href="#education" title="Educación">
+            <EducationIcon/>
+            <span class="hidden 2xl:inline">Educación</span>
           </LinkButton>
-          <LinkButton href="#skills">
-            <SkillIcon/>Habilidades
+          <LinkButton class="tooltip-container" href="#skills" title="Habilidades">
+            <SkillIcon/>
+            <span class="hidden 2xl:inline">Habilidades</span>
           </LinkButton>
         </div>
-        <div class="flex flex-col gap-1.5 mb-6">
-          <AccordionButton title="Contactos"/>
-          <LinkButton href={linkedInUrl} target="_blank" rel="noopener">
-            <LinkedInIcon/>LinkedIn
+        <div class="flex flex-col gap-1.5 my-6">
+          <AccordionButton title="Contactos" />
+          <LinkButton class="tooltip-container" href={linkedInUrl} target="_blank" rel="noopener" title="LinkedIn">
+            <LinkedInIcon/>
+            <span class="hidden 2xl:inline">LinkedIn</span>
           </LinkButton>
-          <LinkButton href={gitHubUrl} target="_blank" rel="noopener">
-            <GitHubIcon/>GitHub
+          <LinkButton class="tooltip-container" href={gitHubUrl} target="_blank" rel="noopener" title="GitHub">
+            <GitHubIcon/>
+            <span class="hidden 2xl:inline">GitHub</span>
           </LinkButton>
-          <LinkButton href={instagramUrl} target="_blank" rel="noopener">
-            <InstagramIcon/>Instagram
+          <LinkButton class="tooltip-container" href={instagramUrl} target="_blank" rel="noopener" title="Instagram">
+            <InstagramIcon/>
+            <span class="hidden 2xl:inline">Instagram</span>
           </LinkButton>
-          <LinkButton class="copy-btn" data-copy="+34672775698" aria-label="Copiar correo">
-            <PhoneIcon/>Teléfono
-            <span class="absolute px-3 py-2 text-sm rounded-lg bg-[var(--main-bg)] backdrop-blur-lg border border-[--border-color] text-white 
-                          transition-all duration-500 transform translate-y-10 translate-x-1
+          <LinkButton class="copy-btn tooltip-container" data-copy="+34672775698" aria-label="Copiar telefono" title="Teléfono">
+            <PhoneIcon/>
+            <span class="hidden 2xl:inline">Teléfono</span>
+            <span class="absolute py-1 text-center text-sm text-white rounded-lg 
+                          bg-[var(--main-bg)] backdrop-blur-lg
+                          transition-all duration-500 transform translate-y-20 2xl:translate-y-9
                           opacity-0 pointer-events-none copy-tooltip"
             >
               ¡Teléfono copiado!✅
             </span>
           </LinkButton>
-          <LinkButton class="copy-btn" data-copy="gomezdelgadoalvaro04@gmail.com" aria-label="Copiar correo">
-            <EmailIcon/>Correo
-            <span class="absolute px-3 py-2 text-sm rounded-lg bg-[var(--main-bg)] backdrop-blur-lg border border-[--border-color] text-white 
-                          transition-all duration-500 transform translate-y-10 translate-x-1
-                          opacity-0 pointer-events-none copy-tooltip"
+          <LinkButton class="copy-btn tooltip-container" data-copy="gomezdelgadoalvaro04@gmail.com" aria-label="Copiar correo" title="Correo">
+            <EmailIcon/>
+            <span class="hidden 2xl:inline">Correo</span>
+            <span class="absolute py-1 text-center text-sm text-white rounded-lg 
+                          bg-[var(--main-bg)] backdrop-blur-lg border border-[--border-color]
+                          transition-all duration-500 transform translate-y-20 2xl:translate-y-9
+                          opacity-0 pointer-events-none 
+                          copy-tooltip"
             >
               ¡Correo copiado!✅
             </span>
@@ -102,37 +114,43 @@ import avatar from '/public/assets/images/alvaro_avatar.webp';
     </aside>
     <section>
       {/* Navbar */}
-      <nav class="flex items-center justify-end px-4 gap-4 border-b">
+      <nav class="flex items-center justify-end px-4 gap-4">
         {/* LinkedIn Badge */}
         <a href="https://www.linkedin.com/in/alvarogmez/" target="_blank" rel="noopener" class="flex items-center transition md:justify-center md:hover:scale-105">
           <LinkedInBadge />
         </a>
-        <Image src={logotipo} alt="Foto de perfil del porfolio" loading="eager" class="size-10 border border-[--border-color] rounded-full" />
+        <Image src={logotipo} alt="Foto de perfil del porfolio" loading="eager" class="size-10 border border-[--border-color] rounded-full"/>
       </nav>
       <main class="p-6 overflow-y-auto scroll-smooth">
         <section>
           {/* About me */}
-          <!-- <article id="about" class="flex rounded-3xl bg-animated-gradient">
+          <article id="about" class="flex rounded-3xl bg-animated-gradient">
             <div class="flex flex-col justify-between w-fit m-6">
               {/* Introduction */}
-              <h1 class="text-4xl font-bold">Hola, soy Álvaro Gómez</h1>
-              <p class="my-4 text-pretty leading-7">
-                Desarrollador y Programador Web con experiencia en tecnologías modernas como Angular, Spring Boot y más. Crea aplicaciones web rápidas y eficientes con un enfoque en la experiencia del usuario.
-              </p>
+              <h1 class="text-4xl md:text-3xl sm:text-2xl font-bold">Hola, soy Álvaro Gómez</h1>
+              <h3 class="text-xl md:text-lg sm:text-md font-semibold text-white/50">Desarrollador Full Stack</h3>
+              <div class="h-full my-4 text-md text-pretty leading-7">
+                <p class="mb-3">
+                  Me gusta dar vida a aplicaciones web que sean modernas, rápidas y agradables de usar. Trabajo tanto en el frontend como en el backend, con especial cariño por <span class="font-bold italic">Angular</span> y <span class="font-bold italic">Spring Boot</span>, herramientas que pude poner en práctica durante mi formación dual y mis primeras experiencias en <span class="font-bold">Vitaly</span>.
+                </p>
+                <p class="mb-3">
+                  Me considero una persona disciplinada y proactiva, que disfruta aprendiendo cada día y no se echa para atrás ante nuevos retos. Para mí, cada proyecto es una oportunidad de aprender, adaptarme y aportar valor real.
+                </p>
+              </div>
 
               {/* Curriculum Vitae */}
-              <div class="flex gap-4">
-                <a href="public/Álvaro_Gómez_CV.pdf" download="Álvaro_Gómez_CV.pdf" class="w-fit rounded-full px-4 py-1 bg-white/60 text-black transition hover:bg-white/90 hover:scale-105">
-                  <button>Descargar CV</button>
-                </a>
+              <div>
+                <buton src="public/Álvaro_Gómez_CV.pdf" download="Álvaro_Gómez_CV.pdf" class="rounded-full px-4 py-1 bg-white/60 text-black cursor-pointer transition hover:bg-white/90 hover:scale-105">
+                  Descargar CV
+                </button>
               </div>
             </div>
 
             {/* Avatar Image */}
             <div class="flex items-center justify-center w-1/3">
-              <Image src={avatar} alt="Avatar de Álvaro Gómez" loading="eager" class="animate-float" />
+              <Image src={avatar} alt="Avatar de Álvaro Gómez" loading="eager" class="w-fit animate-float" />
             </div>
-          </article> -->
+          </article>
 
           <!-- {/* Jobs */}
           <article id="jobs" class="mt-10">
@@ -145,7 +163,7 @@ import avatar from '/public/assets/images/alvaro_avatar.webp';
           {/* Projects */}
           <article id="projects">
             <Title title="Mis Proyectos"/>
-            <div class="grid grid-cols-1 gap-4 lg:grid-cols-2 sm:grid-cols-1">
+            <div class="grid grid-cols-1 gap-4 lg:grid-cols-2 md:grid-cols-1">
               <Project />
             </div>
           </article>
@@ -178,7 +196,7 @@ import avatar from '/public/assets/images/alvaro_avatar.webp';
         btn.addEventListener("click", async (e) => {
           e.preventDefault();
 
-          // Comprueba que el click viene del boton
+          // Comprueba que el click viene del botoneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
           const target = e.target.closest(".copy-btn");
           if (!target) return;
 
@@ -191,12 +209,12 @@ import avatar from '/public/assets/images/alvaro_avatar.webp';
 
             const tooltip = btn.querySelector(".copy-tooltip");
             if(tooltip) {
-              tooltip.classList.remove("opacity-0", "pointer-events-none", "translate-y-1");
-              tooltip.classList.add("opacity-100", "-translate-y-1");
+              tooltip.classList.remove("opacity-0", "pointer-events-none");
+              tooltip.classList.add("opacity-100",);
               
               setTimeout(() => {
-                tooltip.classList.add("opacity-0", "pointer-events-none", "translate-y-1");
-                tooltip.classList.remove("opacity-100", "-translate-y-1");
+                tooltip.classList.add("opacity-0", "pointer-events-none",);
+                tooltip.classList.remove("opacity-100", );
               }, 1200);
             }
           } catch (err) {

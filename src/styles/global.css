@@ -3,74 +3,113 @@
 @tailwind utilities;
 
 :root {
-    color-scheme: light dark;
-    --border-color: rgba(113 119 144 / 25%);
-    --main-bg: rgba(16, 18, 27, 0.35);
-    --hover-bg: rgba(15, 17, 26, 0.4);
-    --main-text: #DEDEDE;
-    /* --background-dif: rgba(18, 18, 18, 0.5); */
+	color-scheme: light dark;
+	--border-color: rgba(113 119 144 / 25%);
+	--main-bg: rgba(16, 18, 27, 0.35);
+	--hover-bg: rgba(15, 17, 26, 0.4);
+	--main-text: #DEDEDE;
+	/* --background-dif: rgba(18, 18, 18, 0.5); */
 }
 
 ::-webkit-scrollbar {
-    width: 4px;
+	width: 4px;
 }
 
 ::-webkit-scrollbar-track {
-    background: transparent;
+	background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: rgba(113 119 144 / 30%);
-    border-radius: 0px 0px 10px 10px;;
+	background-color: rgba(113 119 144 / 30%);
+	border-radius: 0px 0px 10px 10px;
 }
 
 html {
-    font-family: 'Onest Variable', system-ui, sans-serif;
-    scroll-behavior: smooth;
+	font-family: 'Onest Variable', system-ui, sans-serif;
+	font-display: swap;
+	scroll-behavior: smooth;
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    color: var(--main-text);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	color: var(--main-text);
 }
 
 aside{
-    width: 251px;
-    height: 90vh;
-    background-color: var(--main-bg);
-    backdrop-filter: blur(15px);
-    border-right: 1px solid var(--border-color);
-    border-radius: 25px 0 0 25px;
+	width: 10vw;
+	height: 91vh;
+	background-color: var(--main-bg);
+	backdrop-filter: blur(15px);
+	border-right: 1px solid var(--border-color);
+	border-radius: 25px 0 0 25px;
 }
 
 nav {
-    width: 100vh;
-    height: 6vh;
-    background-color: var(--main-bg);
-    backdrop-filter: blur(15px);
-    border-bottom: 1px solid var(--border-color);
-    border-radius: 0 25px 0 0;
+	width: 60vw;
+	height: 6vh;
+	background-color: var(--main-bg);
+	backdrop-filter: blur(15px);
+	border-bottom: 1px solid var(--border-color);
+	border-radius: 0 25px 0 0;
 }
 
 main {
-    width: 100vh;
-    height: 84vh;
-    background-color: var(--main-bg);
-    backdrop-filter: blur(15px);
-    border-radius: 0 0 25px 0;
+	width: 60vw;
+	height: 85vh;
+	background-color: var(--main-bg);
+	backdrop-filter: blur(15px);
+	border-radius: 0 0 25px 0;
 }
 
 .bg-animated-gradient {
-    background: linear-gradient(45deg, rgb(160, 8, 82, 0.4), rgb(143, 10, 93, 0.4), rgb(30, 63, 123, 0.4), rgb(18, 179, 255, 0.4));
-    background-size: 400% 400%;
-    animation: gradient 15s ease infinite;
+	background: linear-gradient(45deg, rgb(160, 8, 82, 0.4), rgb(143, 10, 93, 0.4), rgb(30, 63, 123, 0.4), rgb(18, 179, 255, 0.4));
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
 }
 
 @keyframes gradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 0%; }
-    100% { background-position: 0% 50%; }
+	0% { background-position: 0% 50%; }
+	50% { background-position: 100% 0%; }
+	100% { background-position: 0% 50%; }
 }
+
+/* RESPONSIVE */
+	@media (max-width: 1535px) {
+		aside {
+			width: 8vw;
+		}
+	}
+
+    @media (max-width: 768px) {
+
+    }
+
+
+/* TOOLTIP MD ASIDE SIZE  */
+	.tooltip {
+		transform: translateX(-50%) translateY(0%) scale(0);
+		padding: 0.3em 0.6em;
+		transition: all 0.2s;
+	}
+
+	.tooltip::before {
+		position: absolute;
+		content: "";
+		height: 0.6em;
+		width: 0.6em;
+		bottom: -0.2em;
+		left: 50%;
+		transform: translate(-50%) rotate(45deg);
+		background: var(--tooltip-bg);
+		border-bottom-right-radius: 0.175rem;
+	}
+
+	.tooltip-container:hover .tooltip {
+		opacity: 1;
+		visibility: visible;
+		pointer-events: auto;
+		transform: translateX(-50%) translateY(100%) scale(1);
+	}

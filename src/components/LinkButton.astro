@@ -1,12 +1,18 @@
----
-const { href, class: className = "", ...props } = Astro.props;
----
+    ---
+    import '../styles/global.css';
 
-<a 
-    href={href}
-    class={`flex gap-3 text-md px-2 py-2.5 rounded-lg transition hover:bg-black/40 hover:scale-105 cursor-pointer 
-            ${className}`} 
-    {...props}
->
-    <slot />
-</a>
+    const { title, href, class: className ="", ...props } = Astro.props;
+    ---
+
+    <a 
+        href={href}
+        class={`flex justify-center 2xl:justify-start items-center gap-3  2xl:w-full text-md px-2 py-2.5 rounded-lg transition hover:bg-black/40 hover:scale-105 cursor-pointer ${className}`} 
+        {...props}
+    >
+        <span class="absolute left- opacity-0 rounded-[0.5rem] text-center text-black bg-white/80 
+                    pointer-events-none block 2xl:hidden tooltip border-2 border-black"
+        >
+            {title}
+        </span>
+        <slot />
+    </a>
