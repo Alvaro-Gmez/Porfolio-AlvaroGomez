@@ -67,8 +67,8 @@ const METHODOLOGIES = [
 ];
 ---
 <section class="m-6">
-    <h3 class="text-2xl italic mb-5">FRONTEND</h3>
-    <ul class="flex flex-wrap gap-6 mb-10 px-4">
+    <h3 class="text-lg md:text-xl lg:text-2xl italic mb-5">FRONTEND</h3>
+    <ul class="flex flex-wrap flex-shrink: 1 gap-6 mb-10 px-4">
         {FRONTEND_SKILLS.map(skill => (
             <li class="relative flex flex-col items-center group">
                 <div 
@@ -92,7 +92,7 @@ const METHODOLOGIES = [
                         class="relative p-4 rounded-[20px] hover:border"
                         style={`border-color: ${skill.color};`}
                     >
-                        <skill.icon width={40} height={40} />
+                        <skill.icon width={40} height={40}/>
                     </div>
                 </div>
             </li>
@@ -100,7 +100,7 @@ const METHODOLOGIES = [
     </ul>
 
 
-    <h3 class="text-2xl italic mb-5">BACKEND</h3>
+    <h3 class="text-lg md:text-xl lg:text-2xl italic mb-5">BACKEND</h3>
     <ul class="flex flex-wrap gap-6 mb-10 px-4">
         {BACKEND_SKILLS.map(skill => (
             <li class="relative flex flex-col items-center group">
@@ -132,7 +132,7 @@ const METHODOLOGIES = [
         ))}
     </ul>
 
-    <h3 class="text-2xl italic mb-5">OTROS</h3>
+    <h3 class="text-lg md:text-xl lg:text-2xl italic mb-5">OTROS</h3>
     <ul class="flex flex-wrap gap-6 mb-10 px-4">
         {OTHER_SKILLS.map(skill => (
             <li class="relative flex flex-col items-center group">
@@ -164,7 +164,7 @@ const METHODOLOGIES = [
         ))}
     </ul>
 
-    <h3 class="text-2xl italic mb-5">METODOLOGÍAS</h3>
+    <h3 class="text-lg md:text-xl lg:text-2xl italic mb-5">METODOLOGÍAS</h3>
     <ul class="flex flex-wrap gap-6 mb-10 px-4"> 
         {METHODOLOGIES.map(skill => (
             <li class="relative flex flex-col items-center group">
