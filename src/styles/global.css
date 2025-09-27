@@ -18,7 +18,7 @@
 	transform: scale(1.05);
 }
 
-
+/* CUSTOM SCROLL BAR */
 ::-webkit-scrollbar {
 	width: 4px;
 }
@@ -45,7 +45,7 @@
 }
 
 /* RESPONSIVE */
-	/* @media (max-width: 1535px) {
+	@media (max-width: 1535px) {
 		aside {
 			width: 8dvw;
 		}
@@ -86,7 +86,7 @@
 
 		}
 		
-    } */
+    }
 
 /* TOOLTIP MD ASIDE SIZE  */
 	.tooltip {
