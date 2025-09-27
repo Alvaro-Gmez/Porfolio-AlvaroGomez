@@ -17,12 +17,12 @@ const { author, description, title } = Astro.props;
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
 		<meta name="author" content={author} />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="img/jpg" href="./assets/images/marca.webp"/>
 		<meta name="generator" content={Astro.generator} />
 		<title>{ title }</title>
 	</head>
-	<body class="flex justify-center items-center min-h-[100dvh] text-[var(--main-text)]">
+	<body class="flex justify-center items-center min-h-screen md:min-h-[100dvh] text-[var(--main-text)]">
 		<video 
 			autoplay 
 			loop 
