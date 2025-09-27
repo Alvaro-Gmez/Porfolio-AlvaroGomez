@@ -36,9 +36,9 @@ const FRONTEND_SKILLS = [
     { name: "JavaScript", icon: JavaScriptIcon, color: "#f0db4f" },
     { name: "TypeScript", icon: TypeScriptIcon, color: "#3178C6" },
     { name: "Angular", icon: AngularIcon, color: "#DC087D" },
+    { name: "Bootstrap", icon: BootstrapIcon, color: "#7E13F8" },
     { name: "Astro", icon: AstroIcon, color: "#FF5D01" },
     { name: "Tailwind", icon: TailwindIcon, color: "#38BDF8" },
-    { name: "Bootstrap", icon: BootstrapIcon, color: "#7E13F8" },
 ];
 
 const BACKEND_SKILLS = [
@@ -68,14 +68,14 @@ const METHODOLOGIES = [
 ---
 <section class="m-6">
     <h3 class="text-lg md:text-xl lg:text-2xl italic mb-5">FRONTEND</h3>
-    <ul class="flex flex-wrap flex-shrink: 1 gap-6 mb-10 px-4">
+    <ul class="flex flex-wrap justify-center sm:justify-start gap-6 mb-10 px-4">
         {FRONTEND_SKILLS.map(skill => (
             <li class="relative flex flex-col items-center group">
                 <div 
                     class="absolute left-1/2 -translate-x-1/2 mb-2 px-3 py-1 bottom-full  
-                        rounded-lg border bg-[#0A0B18] text-sm text-pretty
+                        rounded-lg border bg-[#0A0B18] text-sm whitespace-nowrap 
                         opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0
-                        transition duration-300 ease-out"
+                        transition duration-300 ease-out pointer-events-none"
                     style={`border-color: ${skill.color};`}
                 >
                     {skill.name}
@@ -83,16 +83,17 @@ const METHODOLOGIES = [
                 <div class="relative group">
                     {/* capa difuminada */}
                     <div
-                        class="absolute inset-0 rounded-[20px] blur-[3px] opacity-45"
+                        class="absolute inset-0 rounded-[20px] blur-[3px] opacity-45 "
                         style={`background-color: ${skill.color}; box-shadow: 0 0 9px 2px ${skill.color};`}
                     ></div>
 
                     {/* capa principal (icono nítido) */}
                     <div
-                        class="relative p-4 rounded-[20px] hover:border"
-                        style={`border-color: ${skill.color};`}
+                        class="relative p-4 rounded-[20px] border border-transparent 
+                                transition-colors duration-300 hover:border-[var(--skill-color)]"
+                        style={`--skill-color: ${skill.color};`}
                     >
-                        <skill.icon width={40} height={40}/>
+                        <skill.icon class="w-8 h-8 md:w-9 md:h-9 lg:w-10 lg:h-10"/>
                     </div>
                 </div>
             </li>
@@ -101,14 +102,14 @@ const METHODOLOGIES = [
 
 
     <h3 class="text-lg md:text-xl lg:text-2xl italic mb-5">BACKEND</h3>
-    <ul class="flex flex-wrap gap-6 mb-10 px-4">
+    <ul class="flex flex-wrap justify-center sm:justify-start gap-6 mb-10 px-4">
         {BACKEND_SKILLS.map(skill => (
             <li class="relative flex flex-col items-center group">
                 <div 
                     class="absolute left-1/2 -translate-x-1/2 mb-2 px-3 py-1 bottom-full  
-                        rounded-lg border bg-[#0A0B18] text-sm text-pretty 
+                        rounded-lg border bg-[#0A0B18] text-sm whitespace-nowrap
                         opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0
-                        transition duration-300 ease-out"
+                        transition duration-300 ease-out pointer-events-none"
                     style={`border-color: ${skill.color};`}
                 >
                     {skill.name}
@@ -122,10 +123,11 @@ const METHODOLOGIES = [
 
                     {/* capa principal (icono nítido) */}
                     <div
-                        class="relative p-4 rounded-[20px] hover:border"
-                        style={`border-color: ${skill.color};`}
+                        class="relative p-4 rounded-[20px] border border-transparent 
+                                transition-colors duration-300 hover:border-[var(--skill-color)]"
+                        style={`--skill-color: ${skill.color};`}
                     >
-                        <skill.icon width={40} height={40} />
+                        <skill.icon class="w-8 h-8 md:w-9 md:h-9 lg:w-10 lg:h-10" />
                     </div>
                 </div>
             </li>
@@ -133,14 +135,14 @@ const METHODOLOGIES = [
     </ul>
 
     <h3 class="text-lg md:text-xl lg:text-2xl italic mb-5">OTROS</h3>
-    <ul class="flex flex-wrap gap-6 mb-10 px-4">
+    <ul class="flex flex-wrap justify-center sm:justify-start gap-6 mb-10 px-4">
         {OTHER_SKILLS.map(skill => (
             <li class="relative flex flex-col items-center group">
                 <div 
                     class="absolute left-1/2 -translate-x-1/2 mb-2 px-3 py-1 bottom-full  
-                        rounded-lg border bg-[#0A0B18] text-sm text-pretty 
+                        rounded-lg border bg-[#0A0B18] text-sm whitespace-nowrap 
                         opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0
-                        transition duration-300 ease-out"
+                        transition duration-300 ease-out pointer-events-none"
                     style={`border-color: ${skill.color};`}
                 >
                     {skill.name}
@@ -154,10 +156,11 @@ const METHODOLOGIES = [
 
                     {/* capa principal (icono nítido) */}
                     <div
-                        class="relative p-4 rounded-[20px] hover:border"
-                        style={`border-color: ${skill.color};`}
+                        class="relative p-4 rounded-[20px] border border-transparent 
+                                transition-colors duration-300 hover:border-[var(--skill-color)]"
+                        style={`--skill-color: ${skill.color};`}
                     >
-                        <skill.icon width={40} height={40} />
+                        <skill.icon class="w-8 h-8 md:w-9 md:h-9 lg:w-10 lg:h-10"/>
                     </div>
                 </div>
             </li>
@@ -165,7 +168,7 @@ const METHODOLOGIES = [
     </ul>
 
     <h3 class="text-lg md:text-xl lg:text-2xl italic mb-5">METODOLOGÍAS</h3>
-    <ul class="flex flex-wrap gap-6 mb-10 px-4"> 
+    <ul class="flex flex-wrap justify-center sm:justify-start gap-6 mb-10 px-4"> 
         {METHODOLOGIES.map(skill => (
             <li class="relative flex flex-col items-center group">
                 <div class="relative group">
@@ -174,7 +177,7 @@ const METHODOLOGIES = [
                     ></div>
                     
                     <div 
-                        class="relative py-3 px-4 rounded-[20px] hover:border border-[#c2c6da]"
+                        class="relative py-3 px-4 rounded-[20px] border border-transparent hover:border-[#c2c6da]"
                     >
                         <span class="text-pretty">{skill.name}</span>
                     </div>
