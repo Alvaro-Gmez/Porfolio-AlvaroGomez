@@ -117,7 +117,7 @@ import avatar from '/public/assets/images/alvaro_avatar.webp';
       
       {/* Navbar */}
       <nav class="flex flex-col sm:flex-row justify-center sm:justify-end items-center gap-4 
-                  w-[80dvw] md:w-[60dww] h-[6dvh] px-4 bg-[var(--main-bg)] 
+                  w-[80dvw] md:w-[60dvw] h-[6dvh] px-4 bg-[var(--main-bg)] 
                   border-b border-[var(--border-color)] rounded-tr-[25px]"
       >
         <div class="flex gap-4 ">
@@ -139,7 +139,7 @@ import avatar from '/public/assets/images/alvaro_avatar.webp';
       </nav>
       
       {/* Main Content */}
-      <main class="w-[80dvw] md:w-[60dww] h-[85dvh] p-6 overflow-y-auto scroll-smooth bg-[var(--main-bg)] rounded-br-[25px] text-center sm:text-left">
+      <main class="w-[80dvw] md:w-[60dvw] h-[85dvh] p-6 overflow-y-auto scroll-smooth bg-[var(--main-bg)] rounded-br-[25px] text-center sm:text-left">
           
           {/* About me */}
           <article id="about" class="flex rounded-3xl bg-animated-gradient">
@@ -151,6 +151,7 @@ import avatar from '/public/assets/images/alvaro_avatar.webp';
               <h3 class="xs:text-sm sm:text-base lg:text-lg xl:text-xl font-semibold text-white/50">
                 Desarrollador Full Stack
               </h3>
+
               <div class="h-full my-4 text-xs sm:text-sm xl:text-base text-pretty leading-7">
                 <p class="mb-3">
                   Me gusta dar vida a aplicaciones web que sean modernas, rápidas y agradables de usar. Trabajo tanto en el frontend como en el backend, con especial cariño por <span class="font-bold italic">Angular</span> y <span class="font-bold italic">Spring Boot</span>, herramientas que pude poner en práctica durante mi formación dual y mis primeras experiencias en <span class="font-bold">Vitaly</span>.
@@ -159,18 +160,14 @@ import avatar from '/public/assets/images/alvaro_avatar.webp';
                   Me considero una persona disciplinada y proactiva, que disfruta aprendiendo cada día y no se echa para atrás ante nuevos retos. Para mí, cada proyecto es una oportunidad de aprender, adaptarme y aportar valor real.
                 </p>
               </div>
-
-              {/* Curriculum Vitae */}
-              <div>
-                <a 
-                  href="public/Álvaro_Gómez_CV.pdf" 
-                  download="Álvaro_Gómez_CV.pdf" 
-                  class="rounded-full px-4 py-1 bg-white/60 text-black cursor-pointer 
-                          transition hover:bg-white/90 hover:scale-105"
-                >
-                  Descargar CV
-                </a>
-              </div>
+              <a 
+                href="public/Álvaro_Gómez_CV.pdf" 
+                download="Álvaro_Gómez_CV.pdf" 
+                class="sm:w-fit rounded-lg px-4 py-2 bg-white/60 text-black
+                        transition hover:bg-white/90 hover:scale-105"
+              >
+                Descargar CV
+              </a>
             </div>
 
             {/* Avatar Image */}

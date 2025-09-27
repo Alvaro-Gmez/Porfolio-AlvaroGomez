@@ -4,7 +4,7 @@
 const EDUCATIONS = [
     {
         degree: "Curso de Especialización en Inteligencia Artificial y Big Data",
-        institution: "Instituto de Secundario (IES) Augustobriga, Navalmoral de la Mata, Cáceres",
+        institution: "IES Augustobriga, Navalmoral de la Mata, Cáceres",
         startDate: "Septiembre 2025",
         endDate: "Actualidad",
         description: "Aprendiendo a desarrollar modelos de inteligencia artificial con diferentes tecnologías, machine learning, redes neuronales o procesamiento de lenguaje no natural (PNL), así como analizar, tratar y extraer conocimiento de grandes volúmenes de datos.",
@@ -27,32 +27,38 @@ const EDUCATIONS = [
 ---
 
 
-<ol class="relative m-2 md:m-4 lg:m-6 border-s border-gray-200 dark:border-gray-700">
+<ol class="relative m-2 md:m-4 lg:m-6 border-s border-[#134C7B]">
     {
         EDUCATIONS.map(({institution, degree, startDate, endDate, description}) => (
-            <li class="mb-10 ms-7">            
-                <span class="flex items-center justify-center absolute w-6 h-6 bg-gray-800 rounded-lg -start-3 ring-8 ring-white">
+            <li class="relative pl-8 mb-8">            
+                <span class="flex items-center justify-center absolute w-8 h-8 bg-[#134C7B] rounded-lg -start-4 ring ring-[#134C7B]">
                     <svg  
-                        xmlns="http://www.w3.org/2000/svg"  
-                        width="20"  
-                        height="20"  
+                        xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"  
                         fill="none"  
                         stroke="currentColor"  
                         stroke-width="2"  
                         stroke-linecap="round"  
                         stroke-linejoin="round"  
-                        class="icon icon-tabler icons-tabler-outline icon-tabler-school"
+                        class="icon icon-tabler icons-tabler-outline icon-tabler-school w-5 h-5"
                         >
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                             <path d="M22 9l-10 -4l-10 4l10 4l10 -4v6" />
                             <path d="M6 10.6v5.4a6 3 0 0 0 12 0v-5.4" />
                         </svg>
                 </span>
-                <h3 class="flex items-center mb-1 text-lg md:text-xl xl:text-2xl text-pretty font-semibold text-white/80 dark:text-white ">{degree}</h3>
-                <h4 class="mb-3 text-sm font-semibold text-white/70 dark:text-white italic">{institution}</h4>
-                <time class="block mb-2 text-sm leading-none text-gray-400 dark:text-gray-500">· {startDate} - {endDate} ·</time>
-                <p class="mb-4 text-sm md:text-base text-pretty text-white/80 dark:text-gray-400">{description}</p>
+                <h3 class="flex items-center mb-1 text-base sm:text-lg md:text-xl xl:text-2xl text-pretty font-semibold text-white/90">
+                    {degree}
+                </h3>
+                <h4 class="mb-2 text-sm md:text-base font-semibold text-[#134C7B] italic">
+                    {institution}
+                </h4>
+                <time class="block mb-4 text-sm text-gray-400">
+                    · {startDate} - {endDate} ·
+                </time>
+                <p class="text-sm md:text-base text-pretty text-white/80">
+                    {description}
+                </p>
             </li>
         ))
     }              
