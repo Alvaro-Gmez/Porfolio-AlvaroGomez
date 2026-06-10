@@ -43,7 +43,7 @@
       border: 1px solid transparent;
       background:
          linear-gradient(var(--island-bg), var(--island-bg)) padding-box,
-         linear-gradient(135deg, #ffffff, #3b3b3b) border-box;
+         linear-gradient(180deg, #ffffff, #2b2b2b) border-box;
       color: var(--island-text);
       transition: background 0.3s ease, color 0.3s ease;
    }
@@ -51,6 +51,6 @@
    html.light .gradient-border {
       background:
          linear-gradient(var(--island-bg), var(--island-bg)) padding-box,
-         linear-gradient(135deg, #111827, #9ca3af) border-box;
+         linear-gradient(180deg, #111827, #9ca3af) border-box;
    }
 }

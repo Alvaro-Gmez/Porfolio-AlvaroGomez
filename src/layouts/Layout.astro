@@ -6,24 +6,27 @@ interface Props {
 	description: string;
 	title: string;
 	keywords: string;
+	lang: string;
 }
 
-const { author, description, title, keywords } = Astro.props;
-
+const { author, description, title, keywords, lang } = Astro.props;
 ---
 <!doctype html>
-<html lang="es">
+<html lang={lang}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
 		<meta name="author" content={author} />
 		<meta name="keywords" content={keywords} />
+		<meta name="generator" content={Astro.generator} />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
+		<link rel="alternate" hreflang="es" href="/" />
+		<link rel="alternate" hreflang="en" href="/en/" />
+		<link rel="alternate" hreflang="x-default" href="/" />
 		<title>{title}</title>
-		
+
 		<script is:inline>
 			const saved = localStorage.getItem('theme');
 			const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;

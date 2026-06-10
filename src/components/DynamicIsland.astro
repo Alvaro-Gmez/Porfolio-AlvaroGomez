@@ -1,76 +1,46 @@
 ---
+interface Props {
+  lang: string;
+  t: { status: string };
+}
 
+const { lang, t } = Astro.props;
 ---
 
 <div class="gradient-border fixed top-3 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 px-4 py-2 text-sm rounded-full">
 
-   <img src="" alt="Álvaro Gómez" class="w-6 h-6 rounded-full"/>
-   <span class="font-medium">Álvaro Gómez</span>
+  <img src="" alt="Álvaro Gómez" class="w-6 h-6 rounded-full"/>
+  <span class="font-medium">Álvaro Gómez</span>
 
-   <div class="w-px h-4" style="background-color: var(--divider)"></div>
+  <div class="w-px h-4" style="background-color: var(--divider)"></div>
 
-   <div class="flex items-center gap-2 hover:bg-gray-800 px-2 py-1 rounded-full cursor-pointer">
-      <span class="w-2 h-2 rounded-full bg-green-500"></span>
-      <span id="status-text">Disponible</span>
-   </div>
+  <div class="flex items-center gap-2 hover:bg-gray-800 px-2 py-1 rounded-full cursor-pointer">
+    <span class="w-2 h-2 rounded-full bg-green-500 "></span>
+    <span>{t.status}</span>
+  </div>
 
-   <div class="w-px h-4" style="background-color: var(--divider)"></div>
+  <div class="w-px h-4" style="background-color: var(--divider)"></div>
 
-   <button id="theme-toggle" class="pill px-2 py-1">🌙</button>
+  <button id="theme-toggle" class="pill px-2 py-1">🌙</button>
 
-   <div class="pill flex items-center gap-1">
-      <button id="lang-es" class="bg-blue-500 rounded-full px-3 py-1">ES</button>
-      <button id="lang-en" class="px-3 py-1">EN</button>
-   </div>
+  <div class="pill flex items-center gap-1">
+    <a href="/" class={lang === 'es' ? 'bg-blue-500 rounded-full px-3 py-1' : 'px-3 py-1'}>ES</a>
+    <a href="/en/" class={lang === 'en' ? 'bg-blue-500 rounded-full px-3 py-1' : 'px-3 py-1'}>EN</a>
+  </div>
 </div>
 
 <script>
-   const translations = {
-      es: { status: 'Disponible' },
-      en: { status: 'Available' },
-   };
+  function updateThemeIcon() {
+    const btn = document.getElementById('theme-toggle');
+    if (btn) btn.textContent = document.documentElement.classList.contains('light') ? '☀️' : '🌙';
+  }
 
-   function applyLang(lang: string) {
-      const t = translations[lang as keyof typeof translations];
-      const statusEl = document.getElementById('status-text');
-      if (statusEl) statusEl.textContent = t.status;
+  function toggleTheme() {
+    const isLight = document.documentElement.classList.toggle('light');
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    updateThemeIcon();
+  }
 
-      const esBtn = document.getElementById('lang-es');
-      const enBtn = document.getElementById('lang-en');
-      if (!esBtn || !enBtn) return;
-
-      if (lang === 'es') {
-      esBtn.className = 'bg-blue-500 rounded-full px-3 py-1';
-      enBtn.className = 'px-3 py-1';
-      } else {
-      esBtn.className = 'px-3 py-1';
-      enBtn.className = 'bg-blue-500 rounded-full px-3 py-1';
-      }
-
-      document.documentElement.lang = lang;
-   }
-
-   function setLang(lang: string) {
-      localStorage.setItem('lang', lang);
-      applyLang(lang);
-   }
-
-   function updateThemeIcon() {
-      const btn = document.getElementById('theme-toggle');
-      if (btn) btn.textContent = document.documentElement.classList.contains('light') ? '☀️' : '🌙';
-   }
-
-   function toggleTheme() {
-      const isLight = document.documentElement.classList.toggle('light');
-      localStorage.setItem('theme', isLight ? 'light' : 'dark');
-      updateThemeIcon();
-   }
-
-   // Init
-   updateThemeIcon();
-   applyLang(localStorage.getItem('lang') || 'es');
-
-   document.getElementById('theme-toggle')?.addEventListener('click', toggleTheme);
-   document.getElementById('lang-es')?.addEventListener('click', () => setLang('es'));
-   document.getElementById('lang-en')?.addEventListener('click', () => setLang('en'));
+  updateThemeIcon();
+  document.getElementById('theme-toggle')?.addEventListener('click', toggleTheme);
 </script>
