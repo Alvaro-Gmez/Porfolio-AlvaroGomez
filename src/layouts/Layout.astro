@@ -1,14 +1,38 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	author: string;
+	description: string;
+	title: string;
+	keywords: string;
+}
+
+const { author, description, title, keywords } = Astro.props;
+
+---
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="author" content={author} />
+		<meta name="keywords" content={keywords} />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{title}</title>
+		
+		<script is:inline>
+			const saved = localStorage.getItem('theme');
+			const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+			if (saved === 'light' || (!saved && !prefersDark)) {
+				document.documentElement.classList.add('light');
+			}
+		</script>
 	</head>
-	<body>
+	<body class="flex justify-center items-center w-dvw h-dvh text-(--main-text) overflow-hidden">
 		<slot />
 	</body>
 </html>

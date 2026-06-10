@@ -1,0 +1,56 @@
+@import "tailwindcss";
+@source "../**/*.astro";
+
+@layer base {
+   :root {
+      --pill: #374151;
+      --pill-hover: #6b7280;
+      --island-bg: #0d1117;
+      --island-text: #ffffff;
+      --divider: #374151;
+   }
+
+   html.light {
+      --pill: #d1d5db;
+      --pill-hover: #9ca3af;
+      --island-bg: #f9fafb;
+      --island-text: #111827;
+      --divider: #d1d5db;
+   }
+
+   body {
+      background: radial-gradient(ellipse at center, #0d1b2e 0%, #000000 75%);
+      color: var(--text);
+      transition: background 0.3s ease;
+   }
+
+   html.light body {
+      background: radial-gradient(ellipse at center, #dbeafe 0%, #f8fafc 75%);
+   }
+}
+
+@layer components {
+   .pill {
+      border: 1px solid var(--pill);
+      border-radius: 9999px;
+      transition: border-color 0.3s ease;
+      &:hover {
+         border-color: var(--pill-hover);
+      }
+   }
+
+   .gradient-border {
+      border: 1px solid transparent;
+      background:
+         linear-gradient(var(--island-bg), var(--island-bg)) padding-box,
+         linear-gradient(135deg, #ffffff, #3b3b3b) border-box;
+      color: var(--island-text);
+      transition: background 0.3s ease, color 0.3s ease;
+   }
+
+   html.light .gradient-border {
+      background:
+         linear-gradient(var(--island-bg), var(--island-bg)) padding-box,
+         linear-gradient(135deg, #111827, #9ca3af) border-box;
+   }
+}
