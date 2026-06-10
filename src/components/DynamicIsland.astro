@@ -7,7 +7,7 @@ interface Props {
 const { lang, t } = Astro.props;
 ---
 
-<div class="gradient-border fixed top-3 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 px-4 py-2 text-sm rounded-full">
+<div class="gradient-border fixed top-3 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 px-2 py-2 text-xs rounded-full">
 
   <img src="" alt="Álvaro Gómez" class="w-6 h-6 rounded-full"/>
   <span class="font-medium">Álvaro Gómez</span>
@@ -23,7 +23,7 @@ const { lang, t } = Astro.props;
 
   <button id="theme-toggle" class="pill px-2 py-1">🌙</button>
 
-  <div class="pill flex items-center gap-1">
+  <div class="pill flex items-center ">
     <a href="/" class={lang === 'es' ? 'bg-blue-500 rounded-full px-3 py-1' : 'px-3 py-1'}>ES</a>
     <a href="/en/" class={lang === 'en' ? 'bg-blue-500 rounded-full px-3 py-1' : 'px-3 py-1'}>EN</a>
   </div>
