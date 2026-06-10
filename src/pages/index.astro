@@ -1,9 +1,20 @@
 ---
 import DynamicIsland from '../components/DynamicIsland.astro';
-
+import Nav from '../components/Nav.astro';
+import SobreMi from '../components/SobreMi.astro';
 import Layout from '../layouts/Layout.astro';
+import t from '../i18n/es';
 ---
 
-<Layout title="Alvaro Gómez - Portfolio" author="Alvaro Gómez" description="Welcome to my portfolio! I'm Alvaro Gómez, a passionate web developer specializing in creating dynamic and responsive websites. Explore my projects and skills to see how I can bring your ideas to life." keywords="Alvaro Gómez, portfolio, web developer, projects, skills, responsive design, dynamic websites">
-	<DynamicIsland />
+<Layout
+  title="Alvaro Gómez - Portfolio"
+  author="Alvaro Gómez"
+  description="Bienvenido a mi portfolio. Soy Álvaro Gómez, desarrollador web apasionado especializado en crear sitios web dinámicos y responsivos."
+  keywords="Alvaro Gómez, portfolio, desarrollador web, proyectos, habilidades, diseño responsivo"
+  lang="es"
+>
+  <DynamicIsland lang="es" t={t} />
+  <Nav lang="es" />
+  <SobreMi lang="es" t={t} />
+
 </Layout>
