@@ -34,7 +34,7 @@
    }
 
    body {
-      background: radial-gradient(ellipse at center, #101026 20%, #0a0a12 75%);
+      background: radial-gradient(ellipse at center, #151636 20%, #0A0A12 90%, #000000 100%);
       color: var(--text);
       font-family: "Inter Variable", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
       transition: background 0.3s ease, color 0.3s ease;
@@ -50,7 +50,7 @@
    .glass {
       background: var(--card);
       border: 1px solid var(--border);
-      backdrop-filter: saturate(180%) blur(20px);
+      backdrop-filter: saturate(180%) blur(7px);
       -webkit-backdrop-filter: saturate(180%) blur(20px);
       transition: background 0.3s ease, border-color 0.3s ease;
    }

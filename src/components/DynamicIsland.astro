@@ -7,7 +7,7 @@ interface Props {
 const { lang, t } = Astro.props;
 ---
 
-<div class="glass glass-strong fixed top-3 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 px-2 py-2 text-xs rounded-full">
+<div class="glass glass-strong fixed top-3 left-1/2 -translate-x-1/2 z-50 w-70 md:w-fit flex items-center gap-2 px-2 py-2 text-xs rounded-full">
 
   <img src="/assets/images/logotipo.webp" alt="Álvaro Gómez" class="w-6 h-6 rounded-full" />
   <span class="font-medium hidden sm:inline">Álvaro Gómez</span>
@@ -19,7 +19,7 @@ const { lang, t } = Astro.props;
     <span>{t.status}</span>
   </div>
 
-  <div class="w-px h-4 bg-(--divider)"></div>
+  <div class="w-px h-4 bg-(--divider) hidden sm:block"></div>
 
   <button id="theme-toggle" class="chip px-2 py-1 cursor-pointer" aria-label="Cambiar tema">🌙</button>
 
