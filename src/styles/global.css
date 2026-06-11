@@ -41,7 +41,7 @@
    }
 
    html.light body {
-      background: radial-gradient(ellipse at center, #dce7f9 20%, #edf0f8 75%);
+      background: radial-gradient(ellipse at center, #c9d3e2 20%, #edf0f8 90%);
    }
 }
 
