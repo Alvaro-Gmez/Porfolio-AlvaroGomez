@@ -1,29 +1,10 @@
 ---
-interface InfoCard {
-  label: string;
-  value: string;
-}
-
-interface SobreMiT {
-  role: string;
-  greeting: string;
-  name: string;
-  subtitle: string;
-  bio1: string;
-  bio2: string;
-  downloadCV: string;
-  viewProjects: string;
-  available: string;
-  infoCards: {
-    rol: InfoCard;
-    stack: InfoCard;
-    location: InfoCard;
-    focus: InfoCard;
-  };
-}
+import type { SobreMiT } from '../i18n/types';
+import SectionTitle from './SectionTitle.astro';
+import DownloadIcon from '../assets/icons/DownloadIcon.astro';
+import PersonIcon from '../assets/icons/PersonIcon.astro';
 
 interface Props {
-  lang: string;
   t: { sobreMi: SobreMiT; location: string };
 }
 
@@ -37,101 +18,88 @@ const urlCV = '/assets/files/Álvaro_Gómez_CV.pdf';
 <section
   id="inicio"
   data-section-id="inicio"
-  class="gradient-border w-full max-w-4xl rounded-3xl p-8 mt-25 flex flex-col gap-8"
+  class="w-full max-w-4xl mt-25 flex flex-col gap-4"
 >
-  <!-- Pills row -->
-  <div class="flex items-center gap-3 flex-wrap text-sm">
-    <span class="pill flex items-center gap-2 px-4 py-1.5 ">
-      <span class="w-2 h-2 rounded-full bg-blue-400"></span>
-      {s.role}
-    </span>
-    <span class="pill flex items-center gap-2 px-4 py-1.5">
-      <span class="w-2 h-2 rounded-full bg-red-400"></span>
-      {t.location}
-    </span>
+
+  <div class="reveal">
+    <SectionTitle title={s.title} as="p">
+      <PersonIcon />
+    </SectionTitle>
   </div>
 
-  <!-- Main content -->
-  <div class="flex gap-8 items-start">
+  <div class="glass rounded-3xl p-8 flex flex-col gap-8 reveal">
 
-    <!-- Left: portrait -->
-    <div class="relative shrink-0 w-56 rounded-2xl overflow-hidden bg-(--card-bg) aspect-3/4 flex items-center justify-center">
-      <img src={urlAvatar} alt="Álvaro Gómez" class="w-full h-full object-contain object-top" />
-      <div class="absolute bottom-3 left-1/2 -translate-x-1/2 w-max">
-        <span class="pill flex items-center gap-2 px-3 py-1.5 text-xs font-medium whitespace-nowrap" style="background: var(--island-bg);">
-          <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-          {s.available}
-        </span>
-      </div>
+    <!-- Pills -->
+    <div class="flex items-center gap-3 flex-wrap text-sm">
+      <span class="chip flex items-center gap-2 px-4 py-1.5">
+        <span class="w-2 h-2 rounded-full bg-(--accent-2)"></span>
+        {s.role}
+      </span>
+      <span class="chip flex items-center gap-2 px-4 py-1.5">
+        <span class="w-2 h-2 rounded-full bg-red-400"></span>
+        {t.location}
+      </span>
     </div>
 
-    <!-- Right: bio -->
-    <div class="flex flex-col gap-5 flex-1 min-w-0">
+    <!-- Contenido principal -->
+    <div class="flex flex-col sm:flex-row gap-8 items-center sm:items-start">
 
-      <!-- Name & title -->
-      <div>
-        <p class="text-base opacity-60 mb-1">{s.greeting}</p>
-        <h1 class="text-5xl font-extrabold leading-tight tracking-tight">
-          Álvaro <span class="name-gradient">Gómez</span>
-        </h1>
-        <p class="mt-2 text-sm opacity-60 font-medium">{s.subtitle}</p>
+      <!-- Retrato -->
+      <div class="relative shrink-0 w-56 rounded-2xl overflow-hidden glass-strong aspect-3/4 flex items-center justify-center">
+        <img src={urlAvatar} alt="Álvaro Gómez" class="w-full h-full object-contain object-top" />
+        <div class="absolute bottom-3 left-1/2 -translate-x-1/2 w-max">
+          <span class="glass glass-strong flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap">
+            <span class="w-2 h-2 rounded-full bg-(--green) animate-pulse"></span>
+            {s.available}
+          </span>
+        </div>
       </div>
 
       <!-- Bio -->
-      <div class="flex flex-col gap-3 text-sm leading-relaxed opacity-80">
-        <p>{s.bio1}</p>
-        <p>{s.bio2}</p>
-      </div>
+      <div class="flex flex-col gap-5 flex-1 min-w-0">
 
-      <!-- Info grid -->
-      <div class="grid grid-cols-2 gap-3">
-        {[s.infoCards.rol, s.infoCards.stack, s.infoCards.location, s.infoCards.focus].map(card => (
-          <div class="pill px-4 py-3 rounded-xl flex flex-col gap-1">
-            <span class="text-[10px] font-semibold tracking-widest opacity-50">{card.label}</span>
-            <span class="text-sm font-medium">{card.value}</span>
-          </div>
-        ))}
-      </div>
+        <div>
+          <p class="text-base opacity-60 mb-1">{s.greeting}</p>
+          <h1 class="text-5xl font-extrabold leading-tight tracking-tight">
+            Álvaro <span class="text-gradient">Gómez</span>
+          </h1>
+          <p class="mt-2 text-sm opacity-60 font-medium">{s.subtitle}</p>
+        </div>
 
-      <!-- Buttons -->
-      <div class="flex items-center gap-3 flex-wrap">
-        <a
-          href={urlCV}
-          download
-          class="flex items-center gap-2 px-5 py-2.5 rounded-full bg-blue-500 hover:bg-blue-400 text-white text-sm font-semibold transition-colors"
-        >
-          {s.downloadCV}
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-            <polyline points="7 10 12 15 17 10"/>
-            <line x1="12" y1="15" x2="12" y2="3"/>
-          </svg>
-        </a>
-        <a
-          href="#proyectos"
-          class="pill px-5 py-2.5 rounded-full text-sm font-semibold hover:opacity-80 transition-opacity"
-        >
-          {s.viewProjects}
-        </a>
-      </div>
+        <div class="flex flex-col gap-3 text-sm leading-relaxed opacity-80">
+          <p>{s.bio1}</p>
+          <p>{s.bio2}</p>
+        </div>
 
+        <!-- Datos rápidos -->
+        <div class="grid grid-cols-1 min-[420px]:grid-cols-2 gap-3">
+          {[s.infoCards.rol, s.infoCards.stack, s.infoCards.location, s.infoCards.focus].map(card => (
+            <div class="chip px-4 py-3 rounded-xl! flex flex-col gap-1">
+              <span class="text-[10px] font-semibold tracking-widest opacity-50">{card.label}</span>
+              <span class="text-sm font-medium">{card.value}</span>
+            </div>
+          ))}
+        </div>
+
+        <!-- Botones -->
+        <div class="flex items-center gap-3 flex-wrap">
+          <a
+            href={urlCV}
+            download
+            class="flex items-center gap-2 px-5 py-2.5 rounded-full bg-(--accent) text-white text-sm font-semibold hover:-translate-y-0.5 transition-transform"
+          >
+            {s.downloadCV}
+            <DownloadIcon />
+          </a>
+          <a
+            href="#proyectos"
+            class="chip px-5 py-2.5 text-sm font-semibold"
+          >
+            {s.viewProjects}
+          </a>
+        </div>
+
+      </div>
     </div>
   </div>
 </section>
-
-<style>
-  .name-gradient {
-    background: linear-gradient(90deg, #60a5fa, #a78bfa);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  section {
-    --card-bg: #0f1623;
-  }
-
-  html.light section {
-    --card-bg: #e8edf5;
-  }
-</style>

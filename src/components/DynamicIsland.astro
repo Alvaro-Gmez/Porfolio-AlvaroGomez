@@ -7,27 +7,37 @@ interface Props {
 const { lang, t } = Astro.props;
 ---
 
-<div class="gradient-border fixed top-3 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 px-2 py-2 text-xs rounded-full">
+<div class="glass glass-strong fixed top-3 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 px-2 py-2 text-xs rounded-full">
 
-  <img src="" alt="Álvaro Gómez" class="w-6 h-6 rounded-full"/>
-  <span class="font-medium">Álvaro Gómez</span>
+  <img src="/assets/images/logotipo.webp" alt="Álvaro Gómez" class="w-6 h-6 rounded-full" />
+  <span class="font-medium hidden sm:inline">Álvaro Gómez</span>
 
-  <div class="w-px h-4" style="background-color: var(--divider)"></div>
+  <div class="w-px h-4 bg-(--divider)"></div>
 
-  <div class="flex items-center gap-2 hover:bg-gray-800 px-2 py-1 rounded-full cursor-pointer">
-    <span class="w-2 h-2 rounded-full bg-green-500 "></span>
+  <div class="status flex items-center gap-2 px-2 py-1 rounded-full">
+    <span class="w-2 h-2 rounded-full bg-(--green) animate-pulse"></span>
     <span>{t.status}</span>
   </div>
 
-  <div class="w-px h-4" style="background-color: var(--divider)"></div>
+  <div class="w-px h-4 bg-(--divider)"></div>
 
-  <button id="theme-toggle" class="pill px-2 py-1">🌙</button>
+  <button id="theme-toggle" class="chip px-2 py-1 cursor-pointer" aria-label="Cambiar tema">🌙</button>
 
-  <div class="pill flex items-center ">
-    <a href="/" class={lang === 'es' ? 'bg-blue-500 rounded-full px-3 py-1' : 'px-3 py-1'}>ES</a>
-    <a href="/en/" class={lang === 'en' ? 'bg-blue-500 rounded-full px-3 py-1' : 'px-3 py-1'}>EN</a>
+  <div class="chip flex items-center">
+    <a href="/" class:list={["px-3 py-1", { "bg-(--accent) text-white rounded-full": lang === 'es' }]}>ES</a>
+    <a href="/en/" class:list={["px-3 py-1", { "bg-(--accent) text-white rounded-full": lang === 'en' }]}>EN</a>
   </div>
 </div>
+
+<style>
+  .status {
+    transition: background 0.2s ease;
+  }
+
+  .status:hover {
+    background: color-mix(in srgb, var(--text) 8%, transparent);
+  }
+</style>
 
 <script>
   function updateThemeIcon() {

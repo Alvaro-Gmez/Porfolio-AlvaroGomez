@@ -24,7 +24,7 @@ const items = [
     </svg>`,
   },
   {
-    id: 'estudios',
+    id: 'educacion',
     labelEs: 'Estudios',
     labelEn: 'Education',
     icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -54,7 +54,7 @@ const items = [
 ];
 ---
 
-<nav class="gradient-border fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-1 px-2 py-2 rounded-full">
+<nav class="glass glass-strong fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-1 px-2 py-2 rounded-full">
   {items.map(item => (
     <a
       href={`#${item.id}`}
@@ -62,7 +62,7 @@ const items = [
       class="nav-item flex flex-col items-center gap-1 px-4 py-2 rounded-full transition-all duration-200 cursor-pointer select-none"
     >
       <span class="nav-icon w-5 h-5" set:html={item.icon} />
-      <span class="text-[10px] font-medium leading-none tracking-wide">
+      <span class="text-xs font-medium leading-none tracking-wide">
         {lang === 'es' ? item.labelEs : item.labelEn}
       </span>
     </a>
@@ -71,17 +71,17 @@ const items = [
 
 <style>
   .nav-item {
-    color: color-mix(in srgb, var(--island-text) 50%, transparent);
+    color: color-mix(in srgb, var(--text) 50%, transparent);
   }
 
   .nav-item:hover {
-    color: var(--island-text);
-    background-color: color-mix(in srgb, var(--island-text) 8%, transparent);
+    color: var(--text);
+    background-color: color-mix(in srgb, var(--text) 8%, transparent);
   }
 
   .nav-item.active {
-    color: var(--island-text);
-    background-color: color-mix(in srgb, var(--island-text) 12%, transparent);
+    color: var(--text);
+    background-color: color-mix(in srgb, var(--text) 12%, transparent);
   }
 
   .nav-icon :global(svg) {
