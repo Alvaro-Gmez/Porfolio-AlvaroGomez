@@ -67,14 +67,9 @@ export interface CertificacionesT {
   items: readonly CertItem[];
 }
 
-export interface SkillGroup {
-  group: string;
-  items: readonly string[];
-}
-
 export interface HabilidadesT {
   title: string;
-  groups: readonly SkillGroup[];
+  groups: readonly string[];
 }
 
 export interface ContactoT {

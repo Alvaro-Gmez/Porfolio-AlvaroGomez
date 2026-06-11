@@ -64,14 +64,6 @@ export default {
     currentLabel: 'CURRENT',
     items: [
       {
-        school: 'IES Augustobriga',
-        city: 'Navalmoral de la Mata',
-        period: 'Sep 2025 — Present',
-        degree: 'Specialization in AI & Big Data',
-        current: true,
-        description: 'AI models with machine learning, neural networks and NLP. Analysis and knowledge extraction from large data volumes.',
-      },
-      {
         school: 'Escuela Virgen de Guadalupe',
         city: 'Badajoz',
         period: 'Sep 2023 — Jun 2025',
@@ -100,12 +92,7 @@ export default {
   },
   habilidades: {
     title: 'Skills',
-    groups: [
-      { group: 'Frontend', items: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'Angular', 'Bootstrap', 'Astro', 'Tailwind'] },
-      { group: 'Backend', items: ['C', 'Java', 'PHP', 'Spring Boot', 'Node.js', 'MySQL'] },
-      { group: 'Tools', items: ['VS Code', 'Figma', 'Jira', 'Postman', 'Git', 'Docker'] },
-      { group: 'Methodologies', items: ['Agile', 'Scrum', 'Kanban'] },
-    ],
+    groups: ['Frontend', 'Backend', 'Tools', 'Methodologies'],
   },
   contacto: {
     title: 'Shall we build something',

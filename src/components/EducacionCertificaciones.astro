@@ -3,6 +3,7 @@ import type { EducacionT, CertificacionesT } from '../i18n/types';
 import SectionTitle from './SectionTitle.astro';
 import EducacionIcon from '../assets/icons/EducacionIcon.astro';
 import CertificacionIcon from '../assets/icons/CertificacionIcon.astro';
+import Badge from './Badge.astro';
 
 interface Props {
   t: {
@@ -39,7 +40,7 @@ const { t } = Astro.props;
         </div>
         <div class="flex items-center gap-2 flex-wrap">
           <span class="text-sm font-medium text-(--accent-2)">{item.degree}</span>
-          {item.current && <span class="badge">{t.educacion.currentLabel}</span>}
+          {item.current && <Badge>{t.educacion.currentLabel}</Badge>}
         </div>
         <p class="text-xs leading-relaxed opacity-50">{item.description}</p>
       </div>
@@ -65,7 +66,7 @@ const { t } = Astro.props;
           <p class="text-sm font-semibold leading-tight truncate">{cert.name}</p>
           <p class="text-[11px] mt-0.5 opacity-40">{cert.provider}</p>
         </div>
-        <span class="badge shrink-0">{t.certificaciones.statusLabel}</span>
+        <Badge>{t.certificaciones.statusLabel}</Badge>
       </div>
     ))}
 

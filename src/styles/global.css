@@ -83,19 +83,6 @@
       color: var(--accent-2);
    }
 
-   /* Badge tipo "EN CURSO" / "PRÓXIMO" */
-   .badge {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      padding: 3px 9px;
-      border-radius: 9999px;
-      background: var(--accent-soft);
-      color: var(--accent-2);
-      border: 1px solid var(--accent-border);
-      white-space: nowrap;
-   }
-
    /* Texto con degradado de marca */
    .text-gradient {
       background: linear-gradient(90deg, var(--accent-2), #a78bfa);

@@ -65,14 +65,6 @@ export default {
     currentLabel: 'EN CURSO',
     items: [
       {
-        school: 'IES Augustobriga',
-        city: 'Navalmoral de la Mata',
-        period: 'Sep 2025 — Actualidad',
-        degree: 'Curso de Especialización en IA y Big Data',
-        current: true,
-        description: 'Modelos de IA con machine learning, redes neuronales y PLN. Análisis y extracción de conocimiento de grandes volúmenes de datos.',
-      },
-      {
         school: 'Escuela Virgen de Guadalupe',
         city: 'Badajoz',
         period: 'Sep 2023 — Jun 2025',
@@ -103,12 +95,7 @@ export default {
   
   habilidades: {
     title: 'Habilidades',
-    groups: [
-      { group: 'Frontend', items: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'Angular', 'Bootstrap', 'Astro', 'Tailwind'] },
-      { group: 'Backend', items: ['C', 'Java', 'PHP', 'Spring Boot', 'Node.js', 'MySQL'] },
-      { group: 'Herramientas', items: ['VS Code', 'Figma', 'Jira', 'Postman', 'Git', 'Docker'] },
-      { group: 'Metodologías', items: ['Agile', 'Scrum', 'Kanban'] },
-    ],
+    groups: ['Frontend', 'Backend', 'Herramientas', 'Metodologías'],
   },
   contacto: {
     title: '¿Construimos algo',
@@ -119,6 +106,6 @@ export default {
     copyPhone: 'Copiar teléfono',
     copied: '¡Copiado! ✓',
     email: 'gomezdelgadoalvaro04@gmail.com',
-    phone: '672 77 56 98', 
+    phone: '672 77 56 98',
   },
 } satisfies Translations;
