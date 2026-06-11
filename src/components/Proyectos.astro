@@ -1,10 +1,105 @@
+---
+import type { ProyectosT } from '../i18n/types';
+import SectionTitle from './SectionTitle.astro';
+import ProyectosIcon from '../assets/icons/ProyectosIcon.astro';
+import ArrowRightIcon from '../assets/icons/ArrowRightIcon.astro';
+import LockIcon from '../assets/icons/LockIcon.astro';
 
+interface Props {
+  t: { proyectos: ProyectosT };
+}
 
+const { t } = Astro.props;
+const p = t.proyectos;
+---
 
 <section
-   id="proyectos"
-   data-section-id="proyectos"
-   class="gradient-border w-full max-w-4xl rounded-3xl p-8 mt-12 flex flex-col gap-8"
+  id="proyectos"
+  data-section-id="proyectos"
+  class="w-full max-w-4xl mt-12 flex flex-col gap-4"
 >
 
+  <div class="reveal">
+    <SectionTitle title={p.title} count={`${p.items.length} ${p.countLabel}`}>
+      <ProyectosIcon />
+    </SectionTitle>
+  </div>
+
+  <div class="flex flex-col gap-5">
+    {p.items.map((proj, i) => (
+      <article class="pcard glass rounded-3xl overflow-hidden grid md:grid-cols-2 reveal">
+
+        <!-- Imagen -->
+        <div class:list={["pmedia relative min-h-52 overflow-hidden", { "md:order-2": i % 2 === 1 }]}>
+          <img
+            src={proj.image}
+            alt={proj.title}
+            loading="lazy"
+            class="absolute inset-0 w-full h-full object-cover"
+          />
+        </div>
+
+        <!-- Contenido -->
+        <div class="flex flex-col justify-center gap-3 p-7 md:p-9">
+          <p class="font-mono text-[11px] uppercase tracking-wider">
+            <span class="text-(--accent-2)">{proj.num}</span>
+            <span class="opacity-40"> · {proj.kind} · {proj.year}</span>
+          </p>
+          <h3 class="text-2xl font-bold leading-tight tracking-tight">{proj.title}</h3>
+          <p class="text-sm leading-relaxed opacity-70">{proj.description}</p>
+
+          <div class="flex flex-wrap gap-2">
+            {proj.tags.map(tag => (
+              <span class="chip px-3 py-1 text-xs font-medium">{tag}</span>
+            ))}
+          </div>
+
+          {proj.url ? (
+            <a
+              href={proj.url}
+              target="_blank"
+              rel="noopener"
+              class="plink inline-flex items-center gap-2 mt-1 text-sm font-semibold text-(--accent-2)"
+            >
+              {p.githubLabel}
+              <ArrowRightIcon />
+            </a>
+          ) : (
+            <span class="inline-flex items-center gap-2 mt-1 text-sm opacity-60">
+              <LockIcon />
+              {p.ndaLabel}
+            </span>
+          )}
+        </div>
+
+      </article>
+    ))}
+  </div>
+
 </section>
+
+<style>
+  .pcard {
+    transition: transform 0.3s cubic-bezier(0.3, 1, 0.4, 1);
+  }
+
+  .pcard:hover {
+    transform: translateY(-4px);
+  }
+
+  .pmedia img {
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .pcard:hover .pmedia img {
+    transform: scale(1.05);
+  }
+
+  .plink :global(svg) {
+    transition: transform 0.2s ease;
+  }
+
+  .plink:hover :global(svg) {
+    transform: translateX(4px);
+  }
+</style>

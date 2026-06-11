@@ -1,0 +1,54 @@
+---
+import type { HabilidadesT } from '../i18n/types';
+import SectionTitle from './SectionTitle.astro';
+import HabilidadesIcon from '../assets/icons/HabilidadesIcon.astro';
+import MonitorIcon from '../assets/icons/MonitorIcon.astro';
+import ServerIcon from '../assets/icons/ServerIcon.astro';
+import WrenchIcon from '../assets/icons/WrenchIcon.astro';
+import KanbanIcon from '../assets/icons/KanbanIcon.astro';
+
+interface Props {
+  t: { habilidades: HabilidadesT };
+}
+
+const { t } = Astro.props;
+const h = t.habilidades;
+
+// Icono por grupo, en el mismo orden que i18n: Frontend, Backend, Herramientas, Metodologías
+const groupIcons = [MonitorIcon, ServerIcon, WrenchIcon, KanbanIcon];
+---
+
+<section
+  id="skills"
+  data-section-id="skills"
+  class="w-full max-w-4xl mt-12 flex flex-col gap-4"
+>
+
+  <div class="reveal">
+    <SectionTitle title={h.title}>
+      <HabilidadesIcon />
+    </SectionTitle>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    {h.groups.map((group, i) => {
+      const GroupIcon = groupIcons[i] ?? HabilidadesIcon;
+      return (
+      <div class="glass rounded-3xl p-6 flex flex-col gap-4 reveal">
+        <div class="flex items-center gap-3">
+          <div class="icon-box w-7 h-7 rounded-lg [&>svg]:w-3.5 [&>svg]:h-3.5">
+            <GroupIcon />
+          </div>
+          <h3 class="text-base font-semibold">{group.group}</h3>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          {group.items.map(item => (
+            <span class="chip px-3.5 py-1.5 text-sm font-medium">{item}</span>
+          ))}
+        </div>
+      </div>
+      );
+    })}
+  </div>
+
+</section>
