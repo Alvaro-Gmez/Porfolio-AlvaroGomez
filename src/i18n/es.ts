@@ -29,16 +29,6 @@ export default {
     items: [
       {
         num: '01',
-        title: 'EVG · Gestión de Formaciones',
-        year: '2025',
-        kind: 'Proyecto de Fin de Grado',
-        description: 'Aplicación web para gestionar las formaciones de los educadores en un centro educativo.',
-        tags: ['Angular', 'TypeScript', 'PHP'],
-        image: '/assets/images/gestion_formaciones_evg.webp',
-        url: 'https://github.com/Alvaro-Gmez/gestion-formaciones-EVG.git',
-      },
-      {
-        num: '02',
         title: 'Gestor de servicios',
         year: '2025',
         kind: 'Vitaly · Formación dual',
@@ -46,6 +36,16 @@ export default {
         tags: ['Angular', 'TypeScript', 'Bootstrap', 'Spring Boot'],
         image: '/assets/images/gestorServicios_vitaly.webp',
         url: null,
+      },
+      {
+        num: '02',
+        title: 'EVG · Gestión de Formaciones',
+        year: '2025',
+        kind: 'Proyecto de Fin de Grado',
+        description: 'Aplicación web para gestionar las formaciones de los educadores en un centro educativo.',
+        tags: ['Angular', 'TypeScript', 'PHP'],
+        image: '/assets/images/gestion_formaciones_evg.webp',
+        url: 'https://github.com/Alvaro-Gmez/gestion-formaciones-EVG.git',
       },
       {
         num: '03',
@@ -59,6 +59,7 @@ export default {
       },
     ],
   },
+
   educacion: {
     title: 'Educación',
     currentLabel: 'EN CURSO',
@@ -87,6 +88,7 @@ export default {
       },
     ],
   },
+
   certificaciones: {
     title: 'Certificaciones',
     statusLabel: 'PRÓXIMO',
@@ -98,6 +100,7 @@ export default {
       { name: 'AZ-900: Fundamentos de la nube de Azure', provider: 'Microsoft' },
     ],
   },
+  
   habilidades: {
     title: 'Habilidades',
     groups: [
@@ -116,6 +119,6 @@ export default {
     copyPhone: 'Copiar teléfono',
     copied: '¡Copiado! ✓',
     email: 'gomezdelgadoalvaro04@gmail.com',
-    phone: '+34 XXX XX XX XX', // TODO: rellenar con el número real antes de publicar
+    phone: '672 77 56 98', 
   },
 } satisfies Translations;

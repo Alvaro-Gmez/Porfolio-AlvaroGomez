@@ -116,6 +116,6 @@ export default {
     copyPhone: 'Copy phone',
     copied: 'Copied! ✓',
     email: 'gomezdelgadoalvaro04@gmail.com',
-    phone: '+34 XXX XX XX XX', // TODO: fill in the real number before publishing
+    phone: '672 77 56 98',
   },
 } satisfies Translations;
