@@ -4,13 +4,25 @@ import SectionTitle from './SectionTitle.astro';
 import ProyectosIcon from '../assets/icons/ProyectosIcon.astro';
 import ArrowRightIcon from '../assets/icons/ArrowRightIcon.astro';
 import LockIcon from '../assets/icons/LockIcon.astro';
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+import gestorServiciosImg from '../assets/images/gestorServicios_vitaly.webp';
+import gestionFormacionesImg from '../assets/images/gestion_formaciones_evg.webp';
+import shopperMarioImg from '../assets/images/shopper_mario.webp';
+
+const projectImages: Record<string, ImageMetadata> = {
+  gestorServicios: gestorServiciosImg,
+  gestionFormaciones: gestionFormacionesImg,
+  shopperMario: shopperMarioImg,
+};
 
 interface Props {
   t: { proyectos: ProyectosT };
 }
 
 const { t } = Astro.props;
-const p = t.proyectos;
+const proyectos = t.proyectos;
 ---
 
 <section
@@ -20,20 +32,20 @@ const p = t.proyectos;
 >
 
   <div class="reveal">
-    <SectionTitle title={p.title} count={`${p.items.length} ${p.countLabel}`}>
+    <SectionTitle title={proyectos.title} count={`${proyectos.items.length} ${proyectos.countLabel}`}>
       <ProyectosIcon />
     </SectionTitle>
   </div>
 
   <div class="flex flex-col gap-5">
-    {p.items.map((proj, i) => (
+    {proyectos.items.map((p, i) => (
       <article class="pcard glass rounded-3xl overflow-hidden grid md:grid-cols-2 reveal">
 
         <!-- Imagen -->
         <div class:list={["pmedia relative min-h-52 overflow-hidden", { "md:order-2": i % 2 === 1 }]}>
-          <img
-            src={proj.image}
-            alt={proj.title}
+          <Image
+            src={projectImages[p.image]}
+            alt={p.title}
             loading="lazy"
             class="w-full h-full object-contain"
           />
@@ -42,32 +54,32 @@ const p = t.proyectos;
         <!-- Contenido -->
         <div class="flex flex-col justify-center gap-3 p-7 md:p-9">
           <p class="font-mono text-[11px] uppercase tracking-wider">
-            <span class="text-(--accent-2)">{proj.num}</span>
-            <span class="opacity-40"> · {proj.kind} · {proj.year}</span>
+            <span class="text-(--accent-2)">{p.num}</span>
+            <span class="opacity-40"> · {p.kind} · {p.year}</span>
           </p>
-          <h3 class="text-2xl font-bold leading-tight tracking-tight">{proj.title}</h3>
-          <p class="text-sm leading-relaxed opacity-70">{proj.description}</p>
+          <h3 class="text-2xl font-bold leading-tight tracking-tight">{p.title}</h3>
+          <p class="text-sm leading-relaxed opacity-70">{p.description}</p>
 
           <div class="flex flex-wrap gap-2">
-            {proj.tags.map(tag => (
+            {p.tags.map(tag => (
               <span class="chip px-3 py-1 text-xs font-medium">{tag}</span>
             ))}
           </div>
 
-          {proj.url ? (
+          {p.url ? (
             <a
-              href={proj.url}
+              href={p.url}
               target="_blank"
               rel="noopener"
               class="plink inline-flex items-center gap-2 mt-1 text-sm font-semibold text-(--accent-2)"
             >
-              {p.githubLabel}
+              {proyectos.githubLabel}
               <ArrowRightIcon />
             </a>
           ) : (
             <span class="inline-flex items-center gap-2 mt-1 text-sm opacity-60">
               <LockIcon />
-              {p.ndaLabel}
+              {proyectos.ndaLabel}
             </span>
           )}
         </div>

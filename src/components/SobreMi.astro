@@ -4,6 +4,9 @@ import SectionTitle from './SectionTitle.astro';
 import DownloadIcon from '../assets/icons/DownloadIcon.astro';
 import PersonIcon from '../assets/icons/PersonIcon.astro';
 
+import { Image } from 'astro:assets';
+import urlAvatar from '../assets/images/alvaro_avatar.webp';
+
 interface Props {
   t: { sobreMi: SobreMiT; location: string };
 }
@@ -11,7 +14,6 @@ interface Props {
 const { t } = Astro.props;
 const s = t.sobreMi;
 
-const urlAvatar = '/assets/images/alvaro_avatar.webp';
 const urlCV = '/assets/files/Álvaro_Gómez_CV.pdf';
 const linkedinURL = 'https://www.linkedin.com/in/alvarogomezd/';
 ---
@@ -47,7 +49,7 @@ const linkedinURL = 'https://www.linkedin.com/in/alvarogomezd/';
 
       <!-- Retrato -->
       <div class="w-64 relative flex items-center justify-center shrink-0 rounded-2xl overflow-hidden border border-(--accent-soft)">
-        <img src={urlAvatar} alt="Álvaro Gómez" class="w-full h-full object-contain object-top" />
+        <Image src={urlAvatar} alt="Álvaro Gómez" class="w-full h-full object-contain object-top" loading="eager" fetchpriority="high" />
         <div class="absolute bottom-3 left-1/2 -translate-x-1/2 w-max">
           <a href={linkedinURL} target="_blank" rel="noopener noreferrer" class="flex items-center gap-2">
             <span class="glass glass-strong flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap" >

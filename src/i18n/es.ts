@@ -34,7 +34,7 @@ export default {
         kind: 'Vitaly · Formación dual',
         description: 'Plataforma web para la gestión de servicios, desarrollada en Vitaly durante la formación dual.',
         tags: ['Angular', 'TypeScript', 'Bootstrap', 'Spring Boot'],
-        image: '/assets/images/gestorServicios_vitaly.webp',
+        image: 'gestorServicios',
         url: null,
       },
       {
@@ -44,7 +44,7 @@ export default {
         kind: 'Proyecto de Fin de Grado',
         description: 'Aplicación web para gestionar las formaciones de los educadores en un centro educativo.',
         tags: ['Angular', 'TypeScript', 'PHP'],
-        image: '/assets/images/gestion_formaciones_evg.webp',
+        image: 'gestionFormaciones',
         url: 'https://github.com/Alvaro-Gmez/gestion-formaciones-EVG.git',
       },
       {
@@ -54,7 +54,7 @@ export default {
         kind: 'Proyecto escolar',
         description: 'Juego web arcade inspirado en Mario Bros, desarrollado como proyecto escolar.',
         tags: ['HTML', 'CSS', 'JavaScript'],
-        image: '/assets/images/shopper_mario.webp',
+        image: 'shopperMario',
         url: 'https://github.com/Alvaro-Gmez/ABP_Shopper_Mario.git',
       },
     ],
