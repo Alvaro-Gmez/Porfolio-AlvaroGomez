@@ -1,0 +1,74 @@
+---
+import type { ContactoT } from '../i18n/types';
+
+interface Props {
+  t: { contacto: ContactoT };
+}
+
+const { t } = Astro.props;
+const c = t.contacto;
+---
+
+<section
+  id="contacto"
+  data-section-id="contacto"
+  class="w-full max-w-4xl mt-12"
+>
+  <div class="glass rounded-3xl p-10 md:p-16 flex flex-col items-center text-center gap-4 reveal">
+    <h2 class="text-4xl md:text-5xl font-extrabold leading-tight tracking-tight">
+      {c.title} <span class="text-gradient">{c.titleAccent}</span>
+    </h2>
+    <p class="text-sm md:text-base opacity-70 max-w-md">{c.subtitle}</p>
+
+    <div class="flex items-center justify-center gap-3 flex-wrap mt-4">
+      <a
+        href={`mailto:${c.email}`}
+        class="px-5 py-2.5 rounded-full bg-(--accent) text-white text-sm font-semibold hover:-translate-y-0.5 transition-transform"
+      >
+        {c.writeMe}
+      </a>
+      <button
+        type="button"
+        class="copy-btn chip px-5 py-2.5 text-sm font-semibold cursor-pointer"
+        data-copy={c.email}
+        data-copied={c.copied}
+      >
+        {c.copyEmail}
+      </button>
+      <button
+        type="button"
+        class="copy-btn chip px-5 py-2.5 text-sm font-semibold cursor-pointer"
+        data-copy={c.phone}
+        data-copied={c.copied}
+      >
+        {c.copyPhone}
+      </button>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('.copy-btn').forEach(btn => {
+    const original = btn.textContent;
+    let timer: ReturnType<typeof setTimeout>;
+
+    btn.addEventListener('click', () => {
+      navigator.clipboard?.writeText(btn.dataset.copy ?? '').catch(() => {});
+      btn.textContent = btn.dataset.copied ?? '';
+      btn.classList.add('copied');
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        btn.textContent = original;
+        btn.classList.remove('copied');
+      }, 1500);
+    });
+  });
+</script>
+
+<style>
+  .copy-btn.copied {
+    background: var(--green);
+    border-color: transparent;
+    color: #04210f;
+  }
+</style>

@@ -1,0 +1,18 @@
+---
+interface Props {
+  title: string;
+  count?: string;
+  /** Etiqueta del título; "p" cuando la sección ya contiene su propio heading */
+  as?: 'h2' | 'p';
+}
+
+const { title, count, as: Tag = 'h2' }: Props = Astro.props;
+---
+
+<div class="flex items-center gap-3">
+  <div class="icon-box w-8 h-8 rounded-lg [&>svg]:w-4 [&>svg]:h-4">
+    <slot />
+  </div>
+  <Tag class="text-2xl font-bold">{title}</Tag>
+  {count && <span class="ml-auto text-xs font-mono opacity-40">{count}</span>}
+</div>

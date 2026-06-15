@@ -1,0 +1,179 @@
+---
+import type { HabilidadesT } from '../i18n/types';
+import SectionTitle from './SectionTitle.astro';
+import HabilidadesIcon from '../assets/icons/HabilidadesIcon.astro';
+import MonitorIcon from '../assets/icons/MonitorIcon.astro';
+import ServerIcon from '../assets/icons/ServerIcon.astro';
+import WrenchIcon from '../assets/icons/WrenchIcon.astro';
+import KanbanIcon from '../assets/icons/KanbanIcon.astro';
+
+import HTMLIcon from '../assets/icons/Habilidades/HTML.astro';
+import CSSIcon from '../assets/icons/Habilidades/CSS.astro';
+import JSIcon from '../assets/icons/Habilidades/JS.astro';
+import TSIcon from '../assets/icons/Habilidades/TS.astro';
+import AngularIcon from '../assets/icons/Habilidades/Angular.astro';
+import BootstrapIcon from '../assets/icons/Habilidades/Bootstrap.astro';
+import AstroIcon from '../assets/icons/Habilidades/Astro.astro';
+import TailwindIcon from '../assets/icons/Habilidades/Tailwind.astro';
+import CIcon from '../assets/icons/Habilidades/C.astro';
+import JavaIcon from '../assets/icons/Habilidades/Java.astro';
+import PHPIcon from '../assets/icons/Habilidades/PHP.astro';
+import SpringBootIcon from '../assets/icons/Habilidades/SpringBoot.astro';
+import NodeIcon from '../assets/icons/Habilidades/Node.astro';
+import MySQLIcon from '../assets/icons/Habilidades/MySQL.astro';
+import VSCodeIcon from '../assets/icons/Habilidades/VSCode.astro';
+import FigmaIcon from '../assets/icons/Habilidades/Figma.astro';
+import PostmanIcon from '../assets/icons/Habilidades/Postman.astro';
+import GitIcon from '../assets/icons/Habilidades/Git.astro';
+import DockerIcon from '../assets/icons/Habilidades/Docker.astro';
+import JiraIcon from '../assets/icons/Habilidades/Jira.astro';
+
+interface Props {
+  t: { habilidades: HabilidadesT };
+}
+
+const { t } = Astro.props;
+const habilidades = t.habilidades;
+
+const groupIcons = [MonitorIcon, ServerIcon, WrenchIcon, KanbanIcon];
+
+type Skill = { name: string; Icon: any; color: string } | { name: string; Icon: null; color: null };
+
+const skillGroups: Skill[][] = [
+  [
+    { name: 'HTML',        Icon: HTMLIcon,       color: '#E34F26' },
+    { name: 'CSS',         Icon: CSSIcon,        color: '#1572B6' },
+    { name: 'JavaScript',  Icon: JSIcon,         color: '#F7DF1E' },
+    { name: 'TypeScript',  Icon: TSIcon,         color: '#3178C6' },
+    { name: 'Angular',     Icon: AngularIcon,    color: '#DD0031' },
+    { name: 'Bootstrap',   Icon: BootstrapIcon,  color: '#7952B3' },
+    { name: 'Astro',       Icon: AstroIcon,      color: '#FF5D01' },
+    { name: 'Tailwind',    Icon: TailwindIcon,   color: '#06B6D4' },
+  ],
+  [
+    { name: 'C',           Icon: CIcon,          color: '#A8B9CC' },
+    { name: 'Java',        Icon: JavaIcon,       color: '#007396' },
+    { name: 'PHP',         Icon: PHPIcon,        color: '#777BB4' },
+    { name: 'Spring Boot', Icon: SpringBootIcon, color: '#6DB33F' },
+    { name: 'Node.js',     Icon: NodeIcon,       color: '#339933' },
+    { name: 'MySQL',       Icon: MySQLIcon,      color: '#4479A1' },
+  ],
+  [
+    { name: 'VS Code',     Icon: VSCodeIcon,     color: '#007ACC' },
+    { name: 'Figma',       Icon: FigmaIcon,      color: '#F24E1E' },
+    { name: 'Jira',        Icon: JiraIcon,       color: '#176DE4' },
+    { name: 'Postman',     Icon: PostmanIcon,    color: '#FF6C37' },
+    { name: 'Git',         Icon: GitIcon,        color: '#F05032' },
+    { name: 'Docker',      Icon: DockerIcon,     color: '#2496ED' },
+  ],
+  [
+    { name: 'Kanban',      Icon: null,           color: '#0052CC' },
+    { name: 'Agile',       Icon: null,           color: null },
+    { name: 'Scrum',       Icon: null,           color: null },
+  ],
+];
+---
+
+<section
+  id="skills"
+  data-section-id="skills"
+  class="w-full max-w-4xl mt-12 flex flex-col gap-4"
+>
+
+  <div class="reveal">
+    <SectionTitle title={habilidades.title}>
+      <HabilidadesIcon />
+    </SectionTitle>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    {habilidades.groups.map((groupName, i) => {
+      const GroupIcon = groupIcons[i] ?? HabilidadesIcon;
+      const skills    = skillGroups[i] ?? [];
+      return (
+        <div class="glass rounded-3xl p-6 flex flex-col gap-4 reveal">
+          <div class="flex items-center gap-3">
+            <div class="icon-box w-7 h-7 rounded-lg [&>svg]:w-3.5 [&>svg]:h-3.5">
+              <GroupIcon />
+            </div>
+            <h3 class="text-base font-semibold">{groupName}</h3>
+          </div>
+
+          <div class="flex flex-wrap gap-3 items-center">
+            {skills.map(skill => {
+              if (skill.Icon) {
+                const SkillIcon = skill.Icon;
+                return (
+                  <div class="skill-pill" style={`--c:${skill.color}`}>
+                    <SkillIcon />
+                    <span class="skill-pill__label">{skill.name}</span>
+                  </div>
+                );
+              }
+              return <span class="chip px-3.5 py-1.5 text-sm font-medium">{skill.name}</span>;
+            })}
+          </div>
+        </div>
+      );
+    })}
+  </div>
+
+</section>
+
+<style>
+  .skill-pill {
+    position: relative;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: color-mix(in srgb, var(--c) 14%, transparent);
+    border: 1px solid color-mix(in srgb, var(--c) 28%, transparent);
+    transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    cursor: default;
+  }
+
+  .skill-pill :global(svg) {
+    width: 1.5rem;
+    height: 1.5rem;
+    flex-shrink: 0;
+    opacity: 0.75;
+    transition: opacity 0.2s ease;
+  }
+
+  .skill-pill:hover {
+    transform: translateY(-3px);
+    background: color-mix(in srgb, var(--c) 22%, transparent);
+    border-color: color-mix(in srgb, var(--c) 45%, transparent);
+  }
+
+  .skill-pill:hover :global(svg) {
+    opacity: 1;
+  }
+
+  .skill-pill__label {
+    position: absolute;
+    bottom: calc(100% + 7px);
+    left: 50%;
+    transform: translateX(-50%) translateY(5px);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    white-space: nowrap;
+    background: var(--card-strong);
+    color: var(--text);
+    border: 1px solid var(--border-strong);
+    border-radius: 6px;
+    padding: 3px 8px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+    z-index: 10;
+  }
+
+  .skill-pill:hover .skill-pill__label {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+</style>

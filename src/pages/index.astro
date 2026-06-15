@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/Layout.astro';
+import DynamicIsland from '../components/DynamicIsland.astro';
+import Nav from '../components/Nav.astro';
+import SobreMi from '../components/SobreMi.astro';
+import Proyectos from '../components/Proyectos.astro';
+import EducacionCertificaciones from '../components/EducacionCertificaciones.astro';
+import Habilidades from '../components/Habilidades.astro';
+import Contacto from '../components/Contacto.astro';
+import Footer from '../components/Footer.astro';
+import t from '../i18n/es';
+---
+
+<Layout
+  title="Álvaro Gómez - Portfolio"
+  author="Álvaro Gómez"
+  description="Bienvenido a mi portfolio. Soy Álvaro Gómez, desarrollador web apasionado especializado en crear sitios web dinámicos y responsivos."
+  keywords="Álvaro Gómez, portfolio, desarrollador web, proyectos, habilidades, diseño responsivo"
+  lang="es"
+>
+  <DynamicIsland lang="es" t={t} />
+  <Nav lang="es" />
+  <SobreMi t={t} />
+  <Proyectos t={t} />
+  <EducacionCertificaciones t={t} />
+  <Habilidades t={t} />
+  <Contacto t={t} />
+  <Footer t={t} />
+</Layout>

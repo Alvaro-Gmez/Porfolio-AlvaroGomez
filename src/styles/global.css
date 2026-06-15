@@ -1,0 +1,113 @@
+@import "tailwindcss";
+@source "../**/*.astro";
+
+@layer base {
+   :root {
+      --text: #f7f8fb;
+      --muted: rgba(245, 247, 252, 0.72);
+      --faint: rgba(245, 247, 252, 0.45);
+      --card: rgba(16, 18, 32, 0.55);
+      --card-strong: rgba(18, 18, 26, 0.75);
+      --border: rgba(255, 255, 255, 0.10);
+      --border-strong: rgba(255, 255, 255, 0.18);
+      --divider: rgba(255, 255, 255, 0.12);
+      --accent: #0a84ff;
+      --accent-2: #60a5fa;
+      --accent-soft: rgba(10, 132, 255, 0.12);
+      --accent-border: rgba(96, 165, 250, 0.28);
+      --green: #30d158;
+   }
+
+   html.light {
+      --text: #111827;
+      --muted: rgba(17, 24, 39, 0.70);
+      --faint: rgba(17, 24, 39, 0.45);
+      --card: rgba(255, 255, 255, 0.72);
+      --card-strong: rgba(255, 255, 255, 0.88);
+      --border: rgba(0, 0, 0, 0.08);
+      --border-strong: rgba(0, 0, 0, 0.16);
+      --divider: rgba(0, 0, 0, 0.12);
+      /* En claro, el azul claro de los textos de acento se lava: usar el fuerte */
+      --accent-2: #0a84ff;
+      --accent-soft: rgba(10, 132, 255, 0.10);
+      --accent-border: rgba(10, 132, 255, 0.25);
+   }
+
+   body {
+      background: radial-gradient(ellipse at center, #151636 20%, #0A0A12 90%, #000000 100%);
+      color: var(--text);
+      font-family: "Inter Variable", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      transition: background 0.3s ease, color 0.3s ease;
+   }
+
+   html.light body {
+      background: radial-gradient(ellipse at center, #c9d3e2 20%, #edf0f8 90%);
+   }
+}
+
+@layer components {
+   /* Tarjeta translúcida estilo iOS */
+   .glass {
+      background: var(--card);
+      border: 1px solid var(--border);
+      backdrop-filter: saturate(180%) blur(10px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      transition: background 0.3s ease, border-color 0.3s ease;
+   }
+
+   .glass-strong {
+      background: var(--card-strong);
+   }
+
+   /* Píldora pequeña para tecnologías, datos, etc. */
+   .chip {
+      border: 1px solid var(--border);
+      border-radius: 9999px;
+      background: var(--accent-soft);
+      transition: border-color 0.2s ease;
+   }
+
+   .chip:hover {
+      border-color: var(--border-strong);
+      transform: translateY(-2px);
+   }
+
+   /* Cajita de icono unificada (azul acento) */
+   .icon-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-border);
+      color: var(--accent-2);
+   }
+
+   /* Texto con degradado de marca */
+   .text-gradient {
+      background: linear-gradient(90deg, var(--accent-2), #a78bfa);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+   }
+}
+
+/* Animación de entrada al hacer scroll (solo si hay JS para no ocultar contenido) */
+html.js .reveal {
+   opacity: 0;
+   transform: translateY(22px);
+   transition: opacity 0.65s cubic-bezier(0.2, 0.7, 0.2, 1),
+      transform 0.65s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+html.js .reveal.in {
+   opacity: 1;
+   transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+   html.js .reveal {
+      opacity: 1;
+      transform: none;
+   }
+}

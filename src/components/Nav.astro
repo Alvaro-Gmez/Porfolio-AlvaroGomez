@@ -1,0 +1,133 @@
+---
+interface Props {
+  lang: string;
+}
+
+const { lang } = Astro.props;
+
+const items = [
+  {
+    id: 'inicio',
+    labelEs: 'Inicio',
+    labelEn: 'Home',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/>
+      <path d="M9 21V12h6v9"/>
+    </svg>`,
+  },
+  {
+    id: 'proyectos',
+    labelEs: 'Proyectos',
+    labelEn: 'Projects',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M2 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7z"/>
+    </svg>`,
+  },
+  {
+    id: 'educacion',
+    labelEs: 'Estudios',
+    labelEn: 'Education',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 10L12 5 2 10l10 5 10-5z"/>
+      <path d="M6 12v5c0 1.657 2.686 3 6 3s6-1.343 6-3v-5"/>
+      <line x1="22" y1="10" x2="22" y2="15"/>
+    </svg>`,
+  },
+  {
+    id: 'skills',
+    labelEs: 'Skills',
+    labelEn: 'Skills',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="16 18 22 12 16 6"/>
+      <polyline points="8 6 2 12 8 18"/>
+    </svg>`,
+  },
+  {
+    id: 'contacto',
+    labelEs: 'Contacto',
+    labelEn: 'Contact',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2" y="4" width="20" height="16" rx="2"/>
+      <path d="M2 7l10 7 10-7"/>
+    </svg>`,
+  },
+];
+---
+
+<nav class="glass glass-strong fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-1 px-2 py-2 rounded-full">
+  {items.map(item => (
+    <a
+      href={`#${item.id}`}
+      data-section={item.id}
+      class="nav-item flex flex-col items-center gap-1 px-2 sm:px-4 py-1 sm:py-2 rounded-full transition-all duration-200 cursor-pointer select-none"
+    >
+      <span class="nav-icon w-5 h-5" set:html={item.icon} />
+      <span class="text-xs font-medium leading-none tracking-wide">
+        {lang === 'es' ? item.labelEs : item.labelEn}
+      </span>
+    </a>
+  ))}
+</nav>
+
+<style>
+  .nav-item {
+    color: color-mix(in srgb, var(--text) 50%, transparent);
+  }
+
+  .nav-item:hover {
+    color: var(--text);
+    background-color: color-mix(in srgb, var(--text) 8%, transparent);
+  }
+
+  .nav-item.active {
+    color: var(--text);
+    background-color: color-mix(in srgb, var(--text) 12%, transparent);
+  }
+
+  .nav-icon :global(svg) {
+    width: 100%;
+    height: 100%;
+  }
+</style>
+
+<script>
+  function setActive(id: string) {
+    document.querySelectorAll('.nav-item').forEach(el => {
+      el.classList.toggle('active', (el as HTMLElement).dataset.section === id);
+    });
+  }
+
+  const sections = Array.from(
+    document.querySelectorAll<HTMLElement>('[data-section-id]')
+  );
+
+  if (sections.length > 0) {
+    const observer = new IntersectionObserver(
+      entries => {
+        const visible = entries.filter(e => e.isIntersecting);
+        if (visible.length > 0) {
+          const topmost = visible.reduce((a, b) =>
+            a.boundingClientRect.top < b.boundingClientRect.top ? a : b
+          );
+          setActive((topmost.target as HTMLElement).dataset.sectionId ?? '');
+        }
+      },
+      { threshold: 0.4 }
+    );
+    sections.forEach(s => observer.observe(s));
+  } else {
+    setActive('inicio');
+  }
+
+  document.querySelectorAll<HTMLAnchorElement>('.nav-item').forEach(link => {
+    link.addEventListener('click', e => {
+      const id = link.dataset.section ?? '';
+      const target = document.getElementById(id);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+        setActive(id);
+      }
+    });
+  });
+</script>

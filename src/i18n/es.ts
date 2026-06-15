@@ -1,0 +1,111 @@
+import type { Translations } from './types';
+
+export default {
+  status: 'Disponible',
+  location: 'Badajoz, ES',
+  footer: '© 2026 Álvaro Gómez · Desarrollador Full Stack',
+  sobreMi: {
+    title: 'Sobre mí',
+    role: 'Full Stack Developer',
+    greeting: 'Hola, soy',
+    subtitle: 'Frontend & Backend · Angular · Spring Boot',
+    bio1: 'Me gusta dar vida a aplicaciones web que sean modernas, rápidas y agradables de usar. Trabajo tanto en el frontend como en el backend, con especial cariño por Angular y Spring Boot — herramientas que puse en práctica durante mi formación dual y mis primeras experiencias en Vitaly.',
+    bio2: 'Me considero una persona disciplinada y proactiva, que disfruta aprendiendo cada día y no se echa para atrás ante nuevos retos. Para mí, cada proyecto es una oportunidad de aprender, adaptarme y aportar valor real.',
+    downloadCV: 'Descargar CV',
+    viewProjects: 'Ver proyectos',
+    available: 'Disponible para trabajar',
+    infoCards: {
+      rol: { label: 'ROL', value: 'Full Stack Dev' },
+      stack: { label: 'STACK', value: 'Angular · TypeScript · Spring Boot' },
+      location: { label: 'UBICACIÓN', value: 'Badajoz, ES' },
+      focus: { label: 'FOCO', value: 'UX · Rendimiento' },
+    },
+  },
+  proyectos: {
+    title: 'Proyectos',
+    countLabel: 'proyectos',
+    githubLabel: 'Ver en GitHub',
+    ndaLabel: 'Proyecto bajo NDA',
+    items: [
+      {
+        num: '01',
+        title: 'Gestor de servicios',
+        year: '2025',
+        kind: 'Vitaly · Formación dual',
+        description: 'Plataforma web para la gestión de servicios, desarrollada en Vitaly durante la formación dual.',
+        tags: ['Angular', 'TypeScript', 'Bootstrap', 'Spring Boot'],
+        image: 'gestorServicios',
+        url: null,
+      },
+      {
+        num: '02',
+        title: 'EVG · Gestión de Formaciones',
+        year: '2025',
+        kind: 'Proyecto de Fin de Grado',
+        description: 'Aplicación web para gestionar las formaciones de los educadores en un centro educativo.',
+        tags: ['Angular', 'TypeScript', 'PHP'],
+        image: 'gestionFormaciones',
+        url: 'https://github.com/Alvaro-Gmez/gestion-formaciones-EVG.git',
+      },
+      {
+        num: '03',
+        title: 'Shopper Mario',
+        year: '2024',
+        kind: 'Proyecto escolar',
+        description: 'Juego web arcade inspirado en Mario Bros, desarrollado como proyecto escolar.',
+        tags: ['HTML', 'CSS', 'JavaScript'],
+        image: 'shopperMario',
+        url: 'https://github.com/Alvaro-Gmez/ABP_Shopper_Mario.git',
+      },
+    ],
+  },
+
+  educacion: {
+    title: 'Educación',
+    currentLabel: 'EN CURSO',
+    items: [
+      {
+        school: 'Escuela Virgen de Guadalupe',
+        city: 'Badajoz',
+        period: 'Sep 2023 — Jun 2025',
+        degree: 'Grado Superior en Desarrollo de Aplicaciones Web',
+        description: 'Programación web, diseño de interfaces, bases de datos y tecnologías modernas. Proyectos con Angular, Node.js y Spring Boot.',
+      },
+      {
+        school: 'Escuela Virgen de Guadalupe',
+        city: 'Badajoz',
+        period: 'Sep 2020 — Jun 2022',
+        degree: 'Grado Medio en Sistemas Microinformáticos y Redes',
+        description: 'Hardware, software, seguridad y soporte técnico. Instalación y configuración de sistemas informáticos y redes.',
+      },
+    ],
+  },
+
+  certificaciones: {
+    title: 'Certificaciones',
+    statusLabel: 'PRÓXIMO',
+    items: [
+      { name: 'DP-203: Ingeniero de datos de Azure', provider: 'Microsoft' },
+      { name: 'PL-300: Analista de datos de Power BI', provider: 'Microsoft' },
+      { name: 'DP-900: Fundamentos de datos de Azure', provider: 'Microsoft' },
+      { name: 'AI-900: Fundamentos de IA de Azure', provider: 'Microsoft' },
+      { name: 'AZ-900: Fundamentos de la nube de Azure', provider: 'Microsoft' },
+    ],
+  },
+  
+  habilidades: {
+    title: 'Habilidades',
+    groups: ['Frontend', 'Backend', 'Herramientas', 'Metodologías'],
+  },
+  contacto: {
+    title: '¿Construimos algo',
+    titleAccent: 'juntos?',
+    subtitle: '¿Tienes un proyecto o una oferta? Estaré encantado de escucharte.',
+    writeMe: '✉ Escríbeme',
+    copyEmail: 'Copiar correo',
+    copyPhone: 'Copiar teléfono',
+    copied: '¡Copiado! ✓',
+    email: 'gomezdelgadoalvaro04@gmail.com',
+    phone: '672 77 56 98',
+  },
+} satisfies Translations;
