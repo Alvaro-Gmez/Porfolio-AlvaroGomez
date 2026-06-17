@@ -1,5 +1,5 @@
 ---
-import type { EducacionT, CertificacionesT } from '../i18n/types';
+import type { EducacionT, CertificacionesT, EducacionItem } from '../i18n/types';
 import SectionTitle from './SectionTitle.astro';
 import EducacionIcon from '../assets/icons/EducacionIcon.astro';
 import CertificacionIcon from '../assets/icons/CertificacionIcon.astro';
@@ -22,7 +22,7 @@ const { t } = Astro.props;
 >
 
   <!-- ── Educación ──────────────────────────────────────────────────── -->
-  <div class="flex flex-col gap-4">
+  <div class="flex flex-col gap-4 col-span-1 md:col-span-2">
 
     <div class="reveal">
       <SectionTitle title={t.educacion.title}>
@@ -30,7 +30,7 @@ const { t } = Astro.props;
       </SectionTitle>
     </div>
 
-    {t.educacion.items.map(item => (
+    {t.educacion.items.map((item: EducacionItem) => (
       <div class="glass rounded-3xl p-6 flex flex-col gap-2 reveal">
         <div class="flex items-start justify-between gap-2 flex-wrap">
           <p class="text-sm font-semibold leading-tight">
@@ -49,7 +49,7 @@ const { t } = Astro.props;
   </div>
 
   <!-- ── Certificaciones ────────────────────────────────────────────── -->
-  <div class="flex flex-col gap-4">
+  <!-- <div class="flex flex-col gap-4">
 
     <div class="reveal">
       <SectionTitle title={t.certificaciones.title}>
@@ -70,6 +70,6 @@ const { t } = Astro.props;
       </div>
     ))}
 
-  </div>
+  </div> -->
 
 </section>

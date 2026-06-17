@@ -1,4 +1,4 @@
-import type { Translations } from './types';
+import type { Translations, CertItem } from './types';
 
 export default {
   status: 'Disponible',
@@ -59,7 +59,6 @@ export default {
       },
     ],
   },
-
   educacion: {
     title: 'Educación',
     currentLabel: 'EN CURSO',
@@ -80,19 +79,11 @@ export default {
       },
     ],
   },
-
   certificaciones: {
     title: 'Certificaciones',
-    statusLabel: 'PRÓXIMO',
-    items: [
-      { name: 'DP-203: Ingeniero de datos de Azure', provider: 'Microsoft' },
-      { name: 'PL-300: Analista de datos de Power BI', provider: 'Microsoft' },
-      { name: 'DP-900: Fundamentos de datos de Azure', provider: 'Microsoft' },
-      { name: 'AI-900: Fundamentos de IA de Azure', provider: 'Microsoft' },
-      { name: 'AZ-900: Fundamentos de la nube de Azure', provider: 'Microsoft' },
-    ],
+    statusLabel: '',
+    items: [] as CertItem[],
   },
-  
   habilidades: {
     title: 'Habilidades',
     groups: ['Frontend', 'Backend', 'Herramientas', 'Metodologías'],

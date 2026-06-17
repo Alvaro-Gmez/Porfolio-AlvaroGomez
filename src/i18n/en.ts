@@ -1,4 +1,4 @@
-import type { Translations } from './types';
+import type { Translations, CertItem } from './types';
 
 export default {
   status: 'Available',
@@ -81,14 +81,8 @@ export default {
   },
   certificaciones: {
     title: 'Certifications',
-    statusLabel: 'UPCOMING',
-    items: [
-      { name: 'DP-203: Azure Data Engineer', provider: 'Microsoft' },
-      { name: 'PL-300: Power BI Data Analyst', provider: 'Microsoft' },
-      { name: 'DP-900: Azure Data Fundamentals', provider: 'Microsoft' },
-      { name: 'AI-900: Azure AI Fundamentals', provider: 'Microsoft' },
-      { name: 'AZ-900: Azure Cloud Fundamentals', provider: 'Microsoft' },
-    ],
+    statusLabel: '',
+    items: [] as CertItem[],
   },
   habilidades: {
     title: 'Skills',

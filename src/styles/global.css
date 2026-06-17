@@ -1,6 +1,12 @@
 @import "tailwindcss";
 @source "../**/*.astro";
 
+html {
+      scroll-behavior: smooth;
+      /* Espacio para el DynamicIsland fijo (top-3 + altura ~44px) */
+      scroll-padding-top: 5rem;
+   }
+
 @layer base {
    :root {
       --text: #f7f8fb;
@@ -34,7 +40,7 @@
    }
 
    body {
-      background: radial-gradient(ellipse at center, #151636 20%, #0A0A12 90%, #000000 100%);
+      background: radial-gradient(ellipse at center, #151636 20%, #0A0A12 95%, #000000 100%);
       color: var(--text);
       font-family: "Inter Variable", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
       transition: background 0.3s ease, color 0.3s ease;
@@ -50,8 +56,8 @@
    .glass {
       background: var(--card);
       border: 1px solid var(--border);
-      backdrop-filter: saturate(180%) blur(10px);
-      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(2px);
+      backdrop-filter: saturate(180%) blur(2px);
       transition: background 0.3s ease, border-color 0.3s ease;
    }
 
